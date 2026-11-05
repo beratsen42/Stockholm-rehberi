@@ -72,6 +72,42 @@ table.fl td.code{font-weight:600;white-space:nowrap}
 .food li:first-child{border-top:0}
 .food .where{display:block;color:var(--muted);font-size:14px;margin-top:2px}
 .price{font-weight:600;color:var(--gold)}
+/* Metro haritası */
+.mm{padding:12px}
+.mm-svg{display:block;width:100%;height:auto;font:500 11.5px Inter,system-ui,sans-serif}
+.mm-line{fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+.mm-b{stroke:var(--blue)} .mm-r{stroke:var(--red)} .mm-g{stroke:var(--green)}
+.mm-bf{fill:var(--blue)} .mm-rf{fill:var(--red)} .mm-gf{fill:var(--green)}
+.mm-tick{stroke:var(--card);stroke-width:1.5}
+.mm-term{stroke:none}
+.mm-muted{fill:var(--muted);font-size:10.5px;font-weight:400}
+.mm-lab{fill:var(--ink)}
+.mm-artlab{font-weight:600;font-size:12px}
+.mm-placelab{font-weight:600;fill:var(--gold)}
+.mm-art{fill:var(--card);stroke-width:4}
+.mm-bs{stroke:var(--blue)} .mm-rs{stroke:var(--red)} .mm-gs{stroke:var(--green)}
+.mm-art-hub,.mm-hub{fill:var(--card);stroke:var(--ink);stroke-width:2.5}
+.mm-hub{stroke-width:2}
+.mm-hotel{fill:var(--navy);stroke:var(--gold);stroke-width:2}
+.mm-hotel-t{fill:#fff;font-size:10px;font-weight:700}
+.mm-place{fill:var(--gold);stroke:var(--card);stroke-width:1.5}
+.mm-hit{fill:transparent}
+.mm-st{cursor:pointer;outline:none}
+.mm-st.on .mm-art,.mm-st.on .mm-art-hub,.mm-st.on .mm-hub{fill:var(--gold)}
+.mm-st.on .mm-lab{text-decoration:underline}
+.mm-st:focus-visible .mm-lab{text-decoration:underline}
+.mm-info{background:var(--gold-soft);border-radius:10px;padding:10px 12px;margin-top:8px;min-height:72px}
+.mm-k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.mm-t{font-weight:600}
+.mm-n{font-size:14px}
+.mm-legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);margin-top:10px}
+.mm-legend span{display:inline-flex;align-items:center;gap:6px}
+.mm-legend i{display:inline-block;flex:none}
+.lg-art{width:12px;height:12px;border-radius:50%;border:3px solid var(--ink);background:var(--card)}
+.lg-tick{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.lg-hotel{width:14px;height:14px;border-radius:3px;background:var(--navy);border:1.5px solid var(--gold);color:#fff;font:700 9px/11px Inter,sans-serif;text-align:center;font-style:normal}
+.lg-place{width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+.mm-foot{font-size:12px;color:var(--muted);margin:8px 0 0}
 footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 </style>
 </head>
@@ -453,6 +489,109 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 <section id="metro">
   <h2 class="sec">Metro sanatı</h2>
   <p class="sec-sub">SL biletiyle ücretsiz. T-Centralen üç hattın da kesiştiği yer. Otele en yakın: Hötorget ve T-Centralen.</p>
+
+  <div class="card mm">
+    <svg class="mm-svg" viewBox="0 95 420 625" role="img" aria-labelledby="mm-title">
+<title id="mm-title">Metro sanatı istasyonları, şematik harita</title>
+<polyline class="mm-line mm-b" points="245,435 210,400 165,400 120,355 120,270 40,270 40,145"/>
+<polyline class="mm-line mm-b" points="120,270 150,240 150,115"/>
+<polyline class="mm-line mm-g" points="20,355 120,355 170,305 210,305 210,400"/>
+<polyline class="mm-line mm-g" points="210,400 210,585 210,700"/>
+<polyline class="mm-line mm-g" points="210,585 235,610 355,610"/>
+<polyline class="mm-line mm-g" points="210,560 180,590 180,615"/>
+<polyline class="mm-line mm-r" points="330,400 210,400"/>
+<polyline class="mm-line mm-r" points="290,400 290,185"/>
+<polyline class="mm-line mm-r" points="210,400 201,409 201,480 175,506"/>
+<circle class="mm-tick mm-bf" cx="120" cy="312" r="3"/>
+<circle class="mm-tick mm-bf" cx="95" cy="270" r="3"/>
+<circle class="mm-tick mm-bf" cx="40" cy="270" r="3"/>
+<circle class="mm-tick mm-bf" cx="40" cy="245" r="3"/>
+<circle class="mm-tick mm-bf" cx="40" cy="220" r="3"/>
+<circle class="mm-tick mm-bf" cx="40" cy="195" r="3"/>
+<circle class="mm-tick mm-bf" cx="150" cy="215" r="3"/>
+<circle class="mm-tick mm-bf" cx="150" cy="165" r="3"/>
+<circle class="mm-tick mm-bf" cx="150" cy="140" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="335" r="3"/>
+<circle class="mm-tick mm-gf" cx="170" cy="305" r="3"/>
+<circle class="mm-tick mm-gf" cx="48" cy="355" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="510" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="535" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="560" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="585" r="3"/>
+<circle class="mm-tick mm-gf" cx="235" cy="610" r="3"/>
+<circle class="mm-tick mm-gf" cx="265" cy="610" r="3"/>
+<circle class="mm-tick mm-gf" cx="295" cy="610" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="615" r="3"/>
+<circle class="mm-tick mm-gf" cx="210" cy="640" r="3"/>
+<circle class="mm-tick mm-rf" cx="290" cy="290" r="3"/>
+<circle class="mm-tick mm-rf" cx="290" cy="255" r="3"/>
+<circle class="mm-tick mm-rf" cx="290" cy="220" r="3"/>
+<text class="mm-muted" x="49" y="149">Hjulsta</text>
+<rect class="mm-term mm-bf" x="35" y="143" width="10" height="4" rx="2"/>
+<text class="mm-muted" x="159" y="119">Akalla</text>
+<rect class="mm-term mm-bf" x="145" y="113" width="10" height="4" rx="2"/>
+<rect class="mm-term mm-gf" x="18" y="350" width="4" height="10" rx="2"/>
+<text class="mm-muted" x="338" y="404" text-anchor="start">Ropsten</text>
+<text class="mm-muted" x="364" y="614">Skarpnäck</text>
+<rect class="mm-term mm-gf" x="350" y="608" width="10" height="4" rx="2"/>
+<text class="mm-muted" x="219" y="704">Farsta strand</text>
+<rect class="mm-term mm-gf" x="205" y="698" width="10" height="4" rx="2"/>
+<text class="mm-muted" x="180" y="634" text-anchor="middle">Hagsätra</text>
+<rect class="mm-term mm-gf" x="175" y="613" width="10" height="4" rx="2"/>
+<text class="mm-muted" x="169" y="520" text-anchor="end">Fruängen / Norsborg</text>
+<rect class="mm-term mm-rf" x="170" y="504" width="10" height="4" rx="2"/>
+<g class="mm-st" data-id="gamlastan" tabindex="0" role="button" aria-label="Gamla stan"><rect class="mm-hub" x="197" y="439" width="22" height="12" rx="6"/><text class="mm-lab" x="193" y="449" text-anchor="end">Gamla stan</text><rect class="mm-hit" x="145" y="433" width="80" height="24"/></g>
+<g class="mm-st" data-id="slussen" tabindex="0" role="button" aria-label="Slussen"><rect class="mm-hub" x="197" y="474" width="22" height="12" rx="6"/><text class="mm-lab" x="193" y="484" text-anchor="end">Slussen</text><rect class="mm-hit" x="145" y="468" width="80" height="24"/></g>
+<g class="mm-st" data-id="kungstradgarden" tabindex="0" role="button" aria-label="Kungsträdgården"><circle class="mm-art mm-bs" cx="245" cy="435" r="7"/><text class="mm-lab mm-artlab" x="255" y="439" text-anchor="start">Kungsträdgården</text><circle class="mm-hit" cx="245" cy="435" r="16"/></g>
+<g class="mm-st" data-id="tcentralen" tabindex="0" role="button" aria-label="T-Centralen"><rect class="mm-art-hub" x="193.0" y="392" width="26" height="20" rx="8"/><text class="mm-lab mm-artlab" x="196" y="426" text-anchor="end">T-Centralen</text><circle class="mm-hit" cx="210" cy="400" r="16"/></g>
+<g class="mm-st" data-id="radhuset" tabindex="0" role="button" aria-label="Rådhuset"><circle class="mm-art mm-bs" cx="165" cy="400" r="7"/><text class="mm-lab mm-artlab" x="165" y="390" text-anchor="middle">Rådhuset</text><circle class="mm-hit" cx="165" cy="400" r="16"/></g>
+<g class="mm-st" data-id="fridhemsplan" tabindex="0" role="button" aria-label="Fridhemsplan"><rect class="mm-art-hub" x="112.0" y="347" width="16" height="16" rx="8"/><text class="mm-lab mm-artlab" x="112" y="373" text-anchor="end">Fridhemsplan</text><circle class="mm-hit" cx="120" cy="355" r="16"/></g>
+<g class="mm-st" data-id="vastraskogen" tabindex="0" role="button" aria-label="Västra skogen"><circle class="mm-art mm-bs" cx="120" cy="270" r="7"/><text class="mm-lab mm-artlab" x="129" y="288" text-anchor="start">Västra skogen</text><circle class="mm-hit" cx="120" cy="270" r="16"/></g>
+<g class="mm-st" data-id="solnastrand" tabindex="0" role="button" aria-label="Solna strand"><circle class="mm-art mm-bs" cx="65" cy="270" r="7"/><text class="mm-lab mm-artlab" x="65" y="289" text-anchor="middle">Solna strand</text><circle class="mm-hit" cx="65" cy="270" r="16"/></g>
+<g class="mm-st" data-id="tensta" tabindex="0" role="button" aria-label="Tensta"><circle class="mm-art mm-bs" cx="40" cy="170" r="7"/><text class="mm-lab mm-artlab" x="49" y="174" text-anchor="start">Tensta</text><circle class="mm-hit" cx="40" cy="170" r="16"/></g>
+<g class="mm-st" data-id="solnacentrum" tabindex="0" role="button" aria-label="Solna centrum"><circle class="mm-art mm-bs" cx="150" cy="240" r="7"/><text class="mm-lab mm-artlab" x="159" y="244" text-anchor="start">Solna centrum</text><circle class="mm-hit" cx="150" cy="240" r="16"/></g>
+<g class="mm-st" data-id="hallonbergen" tabindex="0" role="button" aria-label="Hallonbergen"><circle class="mm-art mm-bs" cx="150" cy="190" r="7"/><text class="mm-lab mm-artlab" x="159" y="194" text-anchor="start">Hallonbergen</text><circle class="mm-hit" cx="150" cy="190" r="16"/></g>
+<g class="mm-st" data-id="ostermalmstorg" tabindex="0" role="button" aria-label="Östermalmstorg"><circle class="mm-art mm-rs" cx="290" cy="400" r="7"/><text class="mm-lab mm-artlab" x="290" y="420" text-anchor="middle">Östermalmstorg</text><circle class="mm-hit" cx="290" cy="400" r="16"/></g>
+<g class="mm-st" data-id="stadion" tabindex="0" role="button" aria-label="Stadion"><circle class="mm-art mm-rs" cx="290" cy="360" r="7"/><text class="mm-lab mm-artlab" x="299" y="364" text-anchor="start">Stadion</text><circle class="mm-hit" cx="290" cy="360" r="16"/></g>
+<g class="mm-st" data-id="tekniska" tabindex="0" role="button" aria-label="Tekniska högskolan"><circle class="mm-art mm-rs" cx="290" cy="325" r="7"/><text class="mm-lab mm-artlab" x="299" y="329" text-anchor="start">Tekniska högskolan</text><circle class="mm-hit" cx="290" cy="325" r="16"/></g>
+<g class="mm-st" data-id="morby" tabindex="0" role="button" aria-label="Mörby centrum"><circle class="mm-art mm-rs" cx="290" cy="185" r="7"/><text class="mm-lab mm-artlab" x="299" y="189" text-anchor="start">Mörby centrum</text><circle class="mm-hit" cx="290" cy="185" r="16"/></g>
+<g class="mm-st" data-id="hotorget" tabindex="0" role="button" aria-label="Hötorget"><circle class="mm-art mm-gs" cx="210" cy="365" r="7"/><text class="mm-lab mm-artlab" x="219" y="369" text-anchor="start">Hötorget</text><circle class="mm-hit" cx="210" cy="365" r="16"/></g>
+<g class="mm-st" data-id="odenplan" tabindex="0" role="button" aria-label="Odenplan"><circle class="mm-art mm-gs" cx="210" cy="305" r="7"/><text class="mm-lab mm-artlab" x="220" y="309" text-anchor="start">Odenplan</text><circle class="mm-hit" cx="210" cy="305" r="16"/></g>
+<g class="mm-st" data-id="thorildsplan" tabindex="0" role="button" aria-label="Thorildsplan"><circle class="mm-art mm-gs" cx="80" cy="355" r="7"/><text class="mm-lab mm-artlab" x="74" y="345" text-anchor="middle">Thorildsplan</text><circle class="mm-hit" cx="80" cy="355" r="16"/></g>
+<g class="mm-st" data-id="bagarmossen" tabindex="0" role="button" aria-label="Bagarmossen"><circle class="mm-art mm-gs" cx="325" cy="610" r="7"/><text class="mm-lab mm-artlab" x="325" y="629" text-anchor="middle">Bagarmossen</text><circle class="mm-hit" cx="325" cy="610" r="16"/></g>
+<g class="mm-st" data-id="otel" tabindex="0" role="button" aria-label="Otel"><rect class="mm-hotel" x="176" y="342" width="16" height="16" rx="4"/><text class="mm-hotel-t" x="184" y="354" text-anchor="middle">H</text><text class="mm-lab mm-placelab" x="174" y="354" text-anchor="end">Otel</text><circle class="mm-hit" cx="184" cy="350" r="16"/></g>
+<g class="mm-st" data-id="skogskyrkogarden" tabindex="0" role="button" aria-label="Skogskyrkogården"><rect class="mm-place" x="204" y="659" width="12" height="12" transform="rotate(45 210 665)"/><text class="mm-lab mm-placelab" x="221" y="669" text-anchor="start">Skogskyrkogården</text><circle class="mm-hit" cx="210" cy="665" r="16"/></g>
+</svg>
+    <div class="mm-info" id="mm-info" aria-live="polite">
+      <div class="mm-k">İpucu</div>
+      <div class="mm-t">İstasyona dokun</div>
+      <div class="mm-n">Notu burada görünür.</div>
+    </div>
+    <div class="mm-legend">
+      <span><i class="lg-art"></i>Sanat istasyonu</span>
+      <span><i class="lg-tick"></i>Diğer durak</span>
+      <span><i class="lg-hotel">H</i>Otel</span>
+      <span><i class="lg-place"></i>Gezilecek yer</span>
+    </div>
+    <p class="mm-foot">Şematik çizim, ölçekli değil. Sadece rehberdeki istasyonların olduğu kollar gösterildi.</p>
+  </div>
+<script>
+(function(){
+  var D={"gamlastan": {"t": "Gamla stan", "n": "Eski Şehir. Kraliyet Sarayı, Nobel Müzesi, Stortorget Noel pazarı. Yeşil ve kırmızı hat.", "k": "Durak"}, "slussen": {"t": "Slussen", "n": "Södermalm'a geçiş. Stadsmuseet burada. Yeşil ve kırmızı hat.", "k": "Durak"}, "kungstradgarden": {"t": "Kungsträdgården", "n": "Hattın son durağı, kırmızı-yeşil zemin, heykeller. En etkileyicisi.", "k": "Metro sanatı · Mavi hat"}, "tcentralen": {"t": "T-Centralen", "n": "Mavi yaprak ve sarmaşıklar, sanatlı ilk istasyon. Üç hattın kesiştiği yer.", "k": "Metro sanatı · Mavi, Yeşil, Kırmızı hat"}, "radhuset": {"t": "Rådhuset", "n": "Ham kaya duvarlar.", "k": "Metro sanatı · Mavi hat"}, "fridhemsplan": {"t": "Fridhemsplan", "n": "Ham kaya duvarlar. Yeşil hat da durur.", "k": "Metro sanatı · Mavi, Yeşil hat"}, "vastraskogen": {"t": "Västra skogen", "n": "Avrupa'nın en uzun yürüyen merdivenlerinden. Hat burada ikiye ayrılır.", "k": "Metro sanatı · Mavi hat"}, "solnastrand": {"t": "Solna strand", "n": "T10. Gökyüzü teması.", "k": "Metro sanatı · Mavi hat"}, "tensta": {"t": "Tensta", "n": "T10. Göçmenlere adanmış renkli resimler.", "k": "Metro sanatı · Mavi hat"}, "solnacentrum": {"t": "Solna centrum", "n": "T11. Kızıl gökyüzü, yeşil orman.", "k": "Metro sanatı · Mavi hat"}, "hallonbergen": {"t": "Hallonbergen", "n": "T11. Çocuk çizimleri.", "k": "Metro sanatı · Mavi hat"}, "ostermalmstorg": {"t": "Östermalmstorg", "n": "Siri Derkert'in siyah-beyaz duvar çizimleri.", "k": "Metro sanatı · Kırmızı hat"}, "stadion": {"t": "Stadion", "n": "Mavi mağara tavanında gökkuşağı.", "k": "Metro sanatı · Kırmızı hat"}, "tekniska": {"t": "Tekniska högskolan", "n": "Bilim teması, çokyüzlüler.", "k": "Metro sanatı · Kırmızı hat"}, "morby": {"t": "Mörby centrum", "n": "Kırmızı hattın (T14) son durağı. Kaya tavanda renkli boyamalar.", "k": "Metro sanatı · Kırmızı hat"}, "hotorget": {"t": "Hötorget", "n": "1950'ler havası, neon tavan. Otele en yakın istasyonlardan.", "k": "Metro sanatı · Yeşil hat"}, "odenplan": {"t": "Odenplan", "n": "Tavandan sarkan 400 m ışık çizgisi.", "k": "Metro sanatı · Yeşil hat"}, "thorildsplan": {"t": "Thorildsplan", "n": "8-bit video oyunu karoları.", "k": "Metro sanatı · Yeşil hat"}, "bagarmossen": {"t": "Bagarmossen", "n": "T17, Skarpnäck yönü.", "k": "Metro sanatı · Yeşil hat"}, "otel": {"t": "Otel", "n": "Scandic GO, Upplandsgatan 4. En yakın istasyonlar: Hötorget ve T-Centralen.", "k": "Konaklama"}, "skogskyrkogarden": {"t": "Skogskyrkogården", "n": "Orman Mezarlığı, UNESCO mirası. Yeşil hat T18. Ücretsiz.", "k": "Gezilecek yer"}};
+  var box=document.getElementById('mm-info'), cur=null;
+  function show(g){
+    var d=D[g.getAttribute('data-id')]; if(!d) return;
+    if(cur) cur.classList.remove('on'); g.classList.add('on'); cur=g;
+    box.querySelector('.mm-k').textContent=d.k;
+    box.querySelector('.mm-t').textContent=d.t;
+    box.querySelector('.mm-n').textContent=d.n;
+  }
+  document.querySelectorAll('.mm-st').forEach(function(g){
+    g.addEventListener('click',function(){show(g)});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(g)}});
+  });
+})();
+</script>
 
   <div class="card">
     <div class="line"><span class="dot b"></span>Mavi hat (T10, T11)</div>
