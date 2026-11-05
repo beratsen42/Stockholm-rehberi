@@ -56,6 +56,11 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:28px;margin:0 0 4px;letter-s
 .free{border-color:var(--gold);background:var(--gold-soft)}
 .free li{border-top:1px solid color-mix(in srgb,var(--gold) 30%,transparent);padding:6px 0}
 .free li:first-child{border-top:0}
+.free a.jump{color:inherit;font-weight:600;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--gold) 70%,transparent);text-decoration-thickness:2px;text-underline-offset:3px}
+@keyframes flash{0%,40%{box-shadow:0 0 0 3px var(--gold)}100%{box-shadow:0 0 0 3px transparent}}
+.card.flash{animation:flash 1.8s ease-out}
+.back{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--navy);color:#fff;border:1px solid var(--gold);font:600 14px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
+.back.show{opacity:1;transform:none;pointer-events:auto}
 .note{background:var(--gold-soft);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:8px}
 
 table.fl{width:100%;border-collapse:collapse;font-size:14px}
@@ -189,13 +194,13 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   <h2 class="sec">Müzeler</h2>
   <p class="sec-sub">Önem sırasına göre.</p>
 
-  <div class="card free">
+  <div class="card free" id="indirim">
     <h3>Ücretsiz ve indirimli günler</h3>
     <ul>
-      <li><b>Her gün:</b> Stadsmuseet ve Medeltidsmuseet her zaman ücretsiz. Ekonomiska museet 16:00–17:00 yarı fiyat</li>
-      <li><b>Çarşamba 25 Kas:</b> Fotografiska 18:00'den sonra 2 kişi 1 fiyatına. Ekonomiska museet 17:00–20:00 yarı fiyat</li>
-      <li><b>Perşembe 26 Kas:</b> Nationalmuseum 17:00–20:00 ücretsiz. Spårvägsmuseet 17:00–21:00 ücretsiz</li>
-      <li><b>Cuma 27 Kas:</b> Moderna Museet 18:00–20:00 ücretsiz. Etnografiska museet 2 kişi 1 fiyatına (ayın son Cuması)</li>
+      <li><b>Her gün:</b> <a class="jump" href="#m-stadsmuseet">Stadsmuseet</a> ve <a class="jump" href="#m-medeltidsmuseet">Medeltidsmuseet</a> her zaman ücretsiz. <a class="jump" href="#m-ekonomiska">Ekonomiska museet</a> 16:00–17:00 yarı fiyat</li>
+      <li><b>Çarşamba 25 Kas:</b> <a class="jump" href="#m-fotografiska">Fotografiska</a> 18:00'den sonra 2 kişi 1 fiyatına. <a class="jump" href="#m-ekonomiska">Ekonomiska museet</a> 17:00–20:00 yarı fiyat</li>
+      <li><b>Perşembe 26 Kas:</b> <a class="jump" href="#m-nationalmuseum">Nationalmuseum</a> 17:00–20:00 ücretsiz. <a class="jump" href="#m-sparvagsmuseet">Spårvägsmuseet</a> 17:00–21:00 ücretsiz</li>
+      <li><b>Cuma 27 Kas:</b> <a class="jump" href="#m-moderna">Moderna Museet</a> 18:00–20:00 ücretsiz. <a class="jump" href="#m-etnografiska">Etnografiska museet</a> 2 kişi 1 fiyatına (ayın son Cuması)</li>
       <li><b>Cumartesi–Pazar 28–29 Kas:</b> Riksdagshuset rehberli turu ücretsiz</li>
     </ul>
   </div>
@@ -213,7 +218,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.vasamuseet.se/en/visit/hours--admission/">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-fotografiska">
     <h3><span class="num">2</span>Fotografiska</h3>
     <div class="tr">Fotoğraf Müzesi</div>
     <p>Dünyaca ünlü çağdaş fotoğraf müzesi. Üst kattaki bar manzaralı.</p>
@@ -284,7 +289,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://abbathemuseum.com/en/prices-opening-hours">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-nationalmuseum">
     <h3><span class="num">8</span>Nationalmuseum</h3>
     <div class="tr">Ulusal Sanat Müzesi</div>
     <p>İsveç'in ulusal sanat ve tasarım müzesi. Rembrandt, Carl Larsson.</p>
@@ -317,7 +322,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://hallwylskamuseet.se/en/visit-us/opening-hours/">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-medeltidsmuseet">
     <h3><span class="num">11</span>Medeltidsmuseet</h3>
     <div class="tr">Orta Çağ Müzesi</div>
     <p>Kraliyet Sarayı'nın dibinde.</p>
@@ -325,7 +330,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://medeltidsmuseet.stockholm/en/">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-stadsmuseet">
     <h3><span class="num">12</span>Stadsmuseet</h3>
     <div class="tr">Şehir Müzesi</div>
     <p>Stockholm'ün tarihi, Slussen'de.</p>
@@ -333,7 +338,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://stadsmuseet.stockholm/en/your-visit">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-moderna">
     <h3><span class="num">13</span>Moderna Museet</h3>
     <div class="tr">Modern Sanat Müzesi</div>
     <p>Skeppsholmen adasında.</p>
@@ -385,7 +390,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.sjohistoriska.se/en/visit/opening-hours/">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-etnografiska">
     <h3><span class="num">18</span>Etnografiska museet</h3>
     <div class="tr">Etnografya Müzesi</div>
     <p>Dünya kültürlerinden eserler.</p>
@@ -393,7 +398,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.etnografiskamuseet.se/en/visit">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-ekonomiska">
     <h3><span class="num">19</span>Ekonomiska museet</h3>
     <div class="tr">Ekonomi Müzesi</div>
     <p>Para ve ekonomi tarihi.</p>
@@ -401,7 +406,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://ekonomiskamuseet.se/en/visit/admission-and-tickets/">Bilet ve saatler →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-sparvagsmuseet">
     <h3><span class="num">20</span>Spårvägsmuseet</h3>
     <div class="tr">Ulaşım Müzesi</div>
     <p>Eski tramvay, otobüs ve metro vagonları.</p>
@@ -711,6 +716,27 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 </section>
 
 </main>
+<a class="back" id="back" href="#indirim" aria-hidden="true" tabindex="-1">↑ İndirimli günler</a>
+<script>
+(function(){
+  var box=document.getElementById('indirim'), btn=document.getElementById('back'), left=false;
+  function show(on){btn.classList.toggle('show',on);btn.setAttribute('aria-hidden',on?'false':'true');btn.tabIndex=on?0:-1;if(!on)left=false;}
+  box.querySelectorAll('a.jump').forEach(function(a){
+    a.addEventListener('click',function(){
+      var t=document.getElementById(a.getAttribute('href').slice(1));
+      if(t){t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');}
+      left=false;show(true);
+    });
+  });
+  btn.addEventListener('click',function(){show(false);});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!btn.classList.contains('show'))return;
+      if(!e.isIntersecting)left=true; else if(left)show(false);
+    });},{threshold:0.5}).observe(box);
+  }
+})();
+</script>
 <footer>Son güncelleme: <span id="last-updated">5 Kasım 2026, 14:25</span></footer>
 <script>
 fetch(location.href, {method: 'HEAD', cache: 'no-store'}).then(function (r) {
