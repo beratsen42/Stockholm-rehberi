@@ -38,6 +38,10 @@ nav.toc{position:fixed;z-index:10;left:calc(6px + env(safe-area-inset-left));top
 nav.toc a,nav.toc button{cursor:pointer;padding:0;color:inherit;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,.12);text-decoration:none;font-size:21px;line-height:1;transition:background .2s,border-color .2s}
 nav.toc a.on,nav.toc button.on{background:var(--gold);border-color:var(--gold)}
 nav.toc button{margin-top:10px}
+nav.toc{max-height:calc(100vh - 16px);max-height:calc(100svh - 16px);overflow-y:auto;scrollbar-width:none;padding:4px 4px 4px 0}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a,nav.toc button{flex:none}
+@media (max-height:560px){nav.toc{gap:4px}nav.toc a,nav.toc button{width:32px;height:32px;font-size:16px}nav.toc button{margin-top:6px}}
 .sbar{position:fixed;z-index:30;bottom:calc(8px + env(safe-area-inset-bottom));left:calc(60px + env(safe-area-inset-left));right:calc(8px + env(safe-area-inset-right));max-width:520px;display:none;align-items:center;gap:6px;padding:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.18)}
 .sbar.show{display:flex}
 body.searching .back{bottom:calc(max(16px,env(safe-area-inset-bottom)) + 58px)}
@@ -153,6 +157,8 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   <a href="#gezi" title="Gezilecek yerler" aria-label="Gezilecek yerler"><span aria-hidden="true">📍</span></a>
   <a href="#metro" title="Metro sanatı" aria-label="Metro sanatı"><span aria-hidden="true">🚇</span></a>
   <a href="#yemek" title="Yeme-içme" aria-label="Yeme-içme"><span aria-hidden="true">🍽️</span></a>
+  <a href="#fika" title="Fika" aria-label="Fika"><span aria-hidden="true">☕</span></a>
+  <a href="#barlar" title="Barlar" aria-label="Barlar"><span aria-hidden="true">🍸</span></a>
   <button type="button" id="sopen" title="Ara" aria-label="Sayfada ara" aria-expanded="false" aria-controls="sbar"><span aria-hidden="true">🔍</span></button>
 </nav>
 <div class="sbar" id="sbar" role="search">
@@ -710,7 +716,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card" id="fika">
     <h3 lang="sv">Fika</h3>
     <div class="tr">İsveç kahve molası</div>
     <p>Kanelbulle ~40–60 SEK, kahveyle ~75 SEK. Rezervasyon gerekmez. En yoğun saat hafta sonu 14:00–16:00, sabah veya hafta içi daha rahat.</p>
@@ -724,7 +730,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card" id="barlar">
     <h3>Barlar</h3>
     <p>Top 500 Bars 2026 listesinde Stockholm'dan 3 bar var.</p>
     <ul>
