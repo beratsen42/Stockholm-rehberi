@@ -14,14 +14,14 @@
 :root{
   --bg:#f6f3ee; --card:#ffffff; --ink:#1b2430; --muted:#5d6876; --line:#e4ddd2;
   --navy:#0f2a44; --gold:#c9962b; --gold-soft:#f4e7c8;
-  --blue:#2a6bd1; --red:#d0353f; --green:#2e9b55;
+  --blue:#2a6bd1; --red:#d0353f; --green:#2e9b55; --map:#24804a;
   --warn-bg:#fdeceb; --warn-ink:#9e2a2f;
 }
 @media (prefers-color-scheme: dark){
   :root{
     --bg:#0e141b; --card:#161e28; --ink:#e8ecf1; --muted:#9aa6b4; --line:#26313e;
     --navy:#0b1f33; --gold:#e0b453; --gold-soft:#2c2617;
-    --warn-bg:#3a1a1c; --warn-ink:#f2a3a6;
+    --warn-bg:#3a1a1c; --warn-ink:#f2a3a6; --map:#5cc985;
   }
 }
 *{box-sizing:border-box}
@@ -63,6 +63,9 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:28px;margin:0 0 4px;letter-s
 .card li b{font-weight:600}
 .num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-size:12px;font-weight:700;margin-right:8px;vertical-align:2px}
 .link{display:inline-block;margin-top:8px;font-size:14px;font-weight:500;color:var(--blue);text-decoration:none}
+.link+.link{margin-left:16px}
+.link.maplink{color:var(--map)}
+a.map{color:var(--map);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
 .tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--warn-bg);color:var(--warn-ink);margin-left:6px;vertical-align:2px;text-transform:none;letter-spacing:0}
 .free{border-color:var(--gold);background:var(--gold-soft)}
 .free li{border-top:1px solid color-mix(in srgb,var(--gold) 30%,transparent);padding:6px 0}
@@ -191,6 +194,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <h3 lang="sv">Scandic GO</h3>
     <div class="tr">Upplandsgatan 4</div>
     <ul><li><b>Giriş</b> 15:00/16:00 · <b>Çıkış</b> 12:00</li></ul>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Scandic%20GO%2C%20Upplandsgatan%204%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 </section>
 
@@ -231,7 +235,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>İngilizce tur:</b> ücretsiz, 25 dk, her gün her saat buçukta, 10:30–15:30</li>
       <li><b>Not:</b> James Cameron geçici sergisi var</li>
     </ul>
-    <a class="link" href="https://www.vasamuseet.se/en/visit/hours--admission/">Bilet ve saatler →</a>
+    <a class="link" href="https://www.vasamuseet.se/en/visit/hours--admission/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Vasamuseet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-fotografiska">
@@ -243,7 +247,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Giriş:</b> 195 SEK. Çarşamba 18:00'den sonra 2 kişi 1 fiyatına (kişi başı 98 SEK)</li>
       <li><b>Not:</b> 25 Kasım Çarşamba akşamı ideal</li>
     </ul>
-    <a class="link" href="https://stockholm.fotografiska.com/en/visit">Bilet ve saatler →</a>
+    <a class="link" href="https://stockholm.fotografiska.com/en/visit">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fotografiska%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -254,7 +258,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Her gün 10:00–16:00</li>
       <li><b>Giriş:</b> 220 SEK</li>
     </ul>
-    <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/the-royal-palace.html">Bilet ve saatler →</a>
+    <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/the-royal-palace.html">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Kungliga%20slottet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -266,7 +270,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>İngilizce tur:</b> 25 ve 27 Kas: 10:00–15:00 saat başı · 26, 28, 29 Kas: sadece 10:00 (28 Kas Prens Galerisi kapalı)</li>
       <li><b>Giriş:</b> 150 SEK</li>
     </ul>
-    <a class="link" href="https://stadshuset.stockholm/en/visit-stockholm-city-hall/guided-tours/">Bilet ve saatler →</a>
+    <a class="link" href="https://stadshuset.stockholm/en/visit-stockholm-city-hall/guided-tours/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Stockholms%20stadshus" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -278,7 +282,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Giriş:</b> Online daha ucuz</li>
       <li><b>Not:</b> Noel pazarı 27–29 Kasım hafta sonuna denk geliyor</li>
     </ul>
-    <a class="link" href="https://www.skansen.se/en/plan-your-visit/opening-hours-and-prices/">Bilet ve saatler →</a>
+    <a class="link" href="https://www.skansen.se/en/plan-your-visit/opening-hours-and-prices/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Skansen%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -289,7 +293,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Her gün 10:00–17:00, Çarşamba 20:00'ye kadar</li>
       <li><b>Giriş:</b> 170 SEK</li>
     </ul>
-    <a class="link" href="https://www.nordiskamuseet.se/en/visit-us/opening-hours/">Bilet ve saatler →</a>
+    <a class="link" href="https://www.nordiskamuseet.se/en/visit-us/opening-hours/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nordiska%20museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -302,7 +306,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Giriş:</b> 269–349 SEK (saate göre değişir)</li>
       <li><b>Not:</b> 1,5–2 saat ayırın. 24 saat öncesine kadar iptal edilebilir</li>
     </ul>
-    <a class="link" href="https://abbathemuseum.com/en/prices-opening-hours">Bilet ve saatler →</a>
+    <a class="link" href="https://abbathemuseum.com/en/prices-opening-hours">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=ABBA%20The%20Museum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-nationalmuseum">
@@ -314,7 +318,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Giriş:</b> 160 SEK. Perşembe 17:00–20:00 ücretsiz</li>
       <li><b>Not:</b> 26 Kasım Perşembe akşamı ücretsiz girilebilir</li>
     </ul>
-    <a class="link" href="https://www.nationalmuseum.se/en">Bilet ve saatler →</a>
+    <a class="link" href="https://www.nationalmuseum.se/en">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nationalmuseum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -324,7 +328,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <ul><li><b>Saat:</b> Salı–Pazar 11:00–17:00, Cuma 21:00'e kadar. Pazartesi kapalı</li>
       <li><b>Giriş:</b> 160 SEK, rehberli tur dahil</li>
       <li><b>İngilizce tur:</b> ücretsiz, ~20 dk, Salı–Pazar 11:15, 13:15, 15:15. Cuma ayrıca 19:15. Yer sınırlı, girişte kaydolun</li></ul>
-    <a class="link" href="https://www.nobelprizemuseum.se/en/plan-your-visit/">Bilet ve saatler →</a>
+    <a class="link" href="https://www.nobelprizemuseum.se/en/plan-your-visit/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nobelprismuseet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -335,7 +339,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Salı–Cuma 12:00–16:00 (Çarşamba 19:00'a kadar), Cmt–Paz 11:00–17:00. Pazartesi kapalı</li>
       <li><b>Giriş:</b> 150 SEK</li>
     </ul>
-    <a class="link" href="https://hallwylskamuseet.se/en/visit-us/opening-hours/">Bilet ve saatler →</a>
+    <a class="link" href="https://hallwylskamuseet.se/en/visit-us/opening-hours/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Hallwylska%20museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-medeltidsmuseet">
@@ -343,7 +347,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">Orta Çağ Müzesi</div>
     <p>Kraliyet Sarayı'nın dibinde.</p>
     <ul><li><b>Giriş:</b> Ücretsiz</li></ul>
-    <a class="link" href="https://medeltidsmuseet.stockholm/en/">Bilet ve saatler →</a>
+    <a class="link" href="https://medeltidsmuseet.stockholm/en/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Medeltidsmuseet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-stadsmuseet">
@@ -351,7 +355,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">Şehir Müzesi</div>
     <p>Stockholm'ün tarihi, Slussen'de.</p>
     <ul><li><b>Giriş:</b> Ücretsiz</li></ul>
-    <a class="link" href="https://stadsmuseet.stockholm/en/your-visit">Bilet ve saatler →</a>
+    <a class="link" href="https://stadsmuseet.stockholm/en/your-visit">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Stadsmuseet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-moderna">
@@ -362,7 +366,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Salı ve Cuma 10:00–20:00, diğer günler 10:00–18:00. Pazartesi kapalı</li>
       <li><b>Giriş:</b> 170 SEK. Cuma 18:00–20:00 ücretsiz</li>
     </ul>
-    <a class="link" href="https://www.modernamuseet.se/stockholm/en/visit-the-museum">Bilet ve saatler →</a>
+    <a class="link" href="https://www.modernamuseet.se/stockholm/en/visit-the-museum">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Moderna%20Museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -373,7 +377,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Her gün 10:00–17:00, Çarşamba 20:00'ye kadar</li>
       <li><b>Giriş:</b> 185 SEK. Vasa ile kombine 315 SEK</li>
     </ul>
-    <a class="link" href="https://www.vrak.se/en/visit/buy-ticket">Bilet ve saatler →</a>
+    <a class="link" href="https://www.vrak.se/en/visit/buy-ticket">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Vrak%20Museum%20of%20Wrecks%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -384,7 +388,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Hafta içi 11:00–17:00, hafta sonu 10:00–17:00</li>
       <li><b>Giriş:</b> 239 SEK</li>
     </ul>
-    <a class="link" href="https://thevikingmuseum.com/en/visit-us">Bilet ve saatler →</a>
+    <a class="link" href="https://thevikingmuseum.com/en/visit-us">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Viking%20Museum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -395,7 +399,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Her gün 11:00–22:00</li>
       <li><b>Giriş:</b> 190 SEK</li>
     </ul>
-    <a class="link" href="https://spritmuseum.se/en/visit-spritmuseum/">Bilet ve saatler →</a>
+    <a class="link" href="https://spritmuseum.se/en/visit-spritmuseum/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Spritmuseum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -403,7 +407,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">Denizcilik Müzesi</div>
     <p>Gemi modelleri, denizcilik tarihi.</p>
     <ul><li><b>Giriş:</b> 150 SEK</li></ul>
-    <a class="link" href="https://www.sjohistoriska.se/en/visit/opening-hours/">Bilet ve saatler →</a>
+    <a class="link" href="https://www.sjohistoriska.se/en/visit/opening-hours/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sj%C3%B6historiska%20museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-etnografiska">
@@ -411,7 +415,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">Etnografya Müzesi</div>
     <p>Dünya kültürlerinden eserler.</p>
     <ul><li><b>Giriş:</b> 160 SEK</li></ul>
-    <a class="link" href="https://www.etnografiskamuseet.se/en/visit">Bilet ve saatler →</a>
+    <a class="link" href="https://www.etnografiskamuseet.se/en/visit">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Etnografiska%20museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-ekonomiska">
@@ -419,7 +423,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">Ekonomi Müzesi</div>
     <p>Para ve ekonomi tarihi.</p>
     <ul><li><b>Giriş:</b> Her gün 16:00–17:00 ve Çarşamba 17:00–20:00 yarı fiyat (90 SEK)</li></ul>
-    <a class="link" href="https://ekonomiskamuseet.se/en/visit/admission-and-tickets/">Bilet ve saatler →</a>
+    <a class="link" href="https://ekonomiskamuseet.se/en/visit/admission-and-tickets/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Ekonomiska%20museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card" id="m-sparvagsmuseet">
@@ -430,7 +434,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Salı–Pazar 11:00–17:00. Pazartesi kapalı</li>
       <li><b>Not:</b> Perşembe 17:00–21:00 ücretsiz (3 Ara hariç)</li>
     </ul>
-    <a class="link" href="https://sparvagsmuseet.se/infor-besoket/oppettider-och-priser/">Bilet ve saatler →</a>
+    <a class="link" href="https://sparvagsmuseet.se/infor-besoket/oppettider-och-priser/">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sp%C3%A5rv%C3%A4gsmuseet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 </section>
 
@@ -441,15 +445,16 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <h3>Gamla Stan</h3>
     <div class="tr">Eski Şehir</div>
     <p>Dar taş sokaklar, renkli Stortorget meydanı. Kraliyet Sarayı ve Nobel Müzesi burada.</p>
-    <ul><li><b>Storkyrkan:</b> Şehrin en eski kilisesi, sarayın yanında</li></ul>
+    <ul><li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Storkyrkan%2C%20Stockholm" target="_blank" rel="noopener">Storkyrkan</a>:</b> Şehrin en eski kilisesi, sarayın yanında</li></ul>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Gamla%20stan%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
     <h3>Noel pazarları</h3>
     <p>27–29 Kasım hafta sonu ikisi de açık.</p>
     <ul>
-      <li><b>Stortorget (Gamla Stan):</b> ~21 Kas–23 Ara, her gün. Paz–Per 11:00–18:00, Cum–Cmt 11:00–19:00. Ücretsiz</li>
-      <li><b>Skansen:</b> 27 Kas–20 Ara, sadece Cum–Paz. Cum–Cmt 10:00–17:00, Paz 10:00–16:00. Skansen girişine dahil</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Stortorget%2C%20Gamla%20stan%2C%20Stockholm" target="_blank" rel="noopener">Stortorget</a> (Gamla Stan):</b> ~21 Kas–23 Ara, her gün. Paz–Per 11:00–18:00, Cum–Cmt 11:00–19:00. Ücretsiz</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Skansen%2C%20Stockholm" target="_blank" rel="noopener">Skansen</a>:</b> 27 Kas–20 Ara, sadece Cum–Paz. Cum–Cmt 10:00–17:00, Paz 10:00–16:00. Skansen girişine dahil</li>
     </ul>
   </div>
 
@@ -457,7 +462,8 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <h3>Södermalm</h3>
     <div class="tr">Güney Adası</div>
     <p>Kafeler, vintage dükkanlar. Monteliusvägen'den Gamla Stan ve Stadshuset manzarası.</p>
-    <ul><li><b>Skinnarviksberget:</b> Kayalık tepe, şehrin en iyi panoramalarından. Ücretsiz</li></ul>
+    <ul><li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Skinnarviksberget%2C%20Stockholm" target="_blank" rel="noopener">Skinnarviksberget</a>:</b> Kayalık tepe, şehrin en iyi panoramalarından. Ücretsiz</li></ul>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=S%C3%B6dermalm%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -465,6 +471,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">Tarihi Yemek Pazarı</div>
     <p>1888'den kalma kapalı çarşı. Öğle yemeği için iyi.</p>
     <ul><li><b>Not:</b> Pazar kapalı</li></ul>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%96stermalms%20saluhall%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -474,7 +481,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <ul>
       <li><b>İngilizce tur:</b> Cumartesi–Pazar 10:30, 11:45, 14:00. ~55 dk. Saatler değişebilir, takvime bakın</li>
     </ul>
-    <a class="link" href="https://www.riksdagen.se/sv/aktuellt/kalendersida/?cmskategori=startsida&amp;doktyp=kal-vi">Tur detayları →</a>
+    <a class="link" href="https://www.riksdagen.se/sv/aktuellt/kalendersida/?cmskategori=startsida&amp;doktyp=kal-vi">Tur detayları →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Riksdagshuset%2C%20Riksgatan%203%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -486,18 +493,21 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <h3>Brunkebergstunneln</h3>
     <div class="tr">Brunkeberg Tüneli</div>
     <p>Norrmalm'da 1880'lerden kalma yaya tüneli. Ücretsiz.</p>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Brunkebergstunneln%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
     <h3>Skogskyrkogården</h3>
     <div class="tr">Orman Mezarlığı</div>
     <p>UNESCO mirası. Yeşil hat T18, Skogskyrkogården durağı. Ücretsiz.</p>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Skogskyrkog%C3%A5rden%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
     <h3 lang="sv">Riddarholmskyrkan <span class="tag" lang="tr">Geçici olarak kapalı</span></h3>
     <div class="tr">Riddarholmen Kilisesi</div>
     <p>İsveç krallarının mezarları.</p>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Riddarholmskyrkan%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
@@ -508,14 +518,15 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
       <li><b>Saat:</b> Kasım'da sadece hafta sonu (28–29 Kas), ~10:00–16:00</li>
       <li><b>Giriş:</b> 170 SEK</li>
     </ul>
-    <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/drottningholm-palace.html">Bilet ve saatler →</a>
+    <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/drottningholm-palace.html">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Drottningholms%20slott" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
   <div class="card">
     <h3 lang="sv">Sigtuna</h3>
     <div class="tr">İsveç'in en eski kasabası</div>
     <p>Ahşap evler, göl kıyısı. Banliyö treni + otobüsle ~1 saat, SL biletiyle.</p>
-    <ul><li><b>Fika:</b> Pelle &amp; Maries Brödbutik'in ünlü kanelbulle'si</li></ul>
+    <ul><li><b>Fika:</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pelle%20%26%20Maries%20Br%C3%B6dbutik%2C%20Sigtuna" target="_blank" rel="noopener">Pelle &amp; Maries Brödbutik</a>'in ünlü kanelbulle'si</li></ul>
+    <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sigtuna" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 </section>
 
@@ -676,25 +687,25 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   <div class="card">
     <h3>Denenecekler</h3>
     <ul class="food">
-      <li><b>Köttbullar</b> – Köfte, krema sos, patates püresi, yaban mersini reçeli<span class="where">📍 Pelikan €€, Meatballs for the People €€, Tradition €€</span></li>
-      <li><b>Toast Skagen</b> – Kızarmış ekmek üstünde karides salatası<span class="where">📍 Tennstopet €€, Pelikan €€</span></li>
-      <li><b>Gravad lax</b> – Tuz ve dereotuyla kürlenmiş somon<span class="where">📍 Östermalms Saluhall €€–€€€, Tradition €€</span></li>
-      <li><b>Sill</b> – Marine ringa balığı<span class="where">📍 Nystekt Strömming € (seyyar araba, Kornhamnstorg, Gamla Stan), Östermalms Saluhall €€–€€€</span></li>
-      <li><b>Janssons frestelse</b> – Patates, soğan ve hamsiyle fırın graten<span class="where">📍 Pelikan €€, Tennstopet €€</span></li>
+      <li><b>Köttbullar</b> – Köfte, krema sos, patates püresi, yaban mersini reçeli<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pelikan%2C%20Blekingegatan%2040%2C%20Stockholm" target="_blank" rel="noopener">Pelikan</a> €€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Meatballs%20for%20the%20People%2C%20Stockholm" target="_blank" rel="noopener">Meatballs for the People</a> €€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurang%20Tradition%2C%20Stockholm" target="_blank" rel="noopener">Tradition</a> €€</span></li>
+      <li><b>Toast Skagen</b> – Kızarmış ekmek üstünde karides salatası<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tennstopet%2C%20Stockholm" target="_blank" rel="noopener">Tennstopet</a> €€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pelikan%2C%20Blekingegatan%2040%2C%20Stockholm" target="_blank" rel="noopener">Pelikan</a> €€</span></li>
+      <li><b>Gravad lax</b> – Tuz ve dereotuyla kürlenmiş somon<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%96stermalms%20saluhall%2C%20Stockholm" target="_blank" rel="noopener">Östermalms Saluhall</a> €€–€€€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurang%20Tradition%2C%20Stockholm" target="_blank" rel="noopener">Tradition</a> €€</span></li>
+      <li><b>Sill</b> – Marine ringa balığı<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Nystekt%20Str%C3%B6mming%2C%20Kornhamnstorg%2C%20Stockholm" target="_blank" rel="noopener">Nystekt Strömming</a> € (seyyar araba, Kornhamnstorg, Gamla Stan), <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%96stermalms%20saluhall%2C%20Stockholm" target="_blank" rel="noopener">Östermalms Saluhall</a> €€–€€€</span></li>
+      <li><b>Janssons frestelse</b> – Patates, soğan ve hamsiyle fırın graten<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pelikan%2C%20Blekingegatan%2040%2C%20Stockholm" target="_blank" rel="noopener">Pelikan</a> €€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tennstopet%2C%20Stockholm" target="_blank" rel="noopener">Tennstopet</a> €€</span></li>
       <li><b>Plankfisk</b> – Tahta servis tahtasında fırınlanmış balık, patates püresi ve hollandez sosla<span class="where">📍 Klasik lokantalarda menüye bakın, dagens lunch'ta sık çıkar</span></li>
-      <li><b>Kanelbulle / Kardemummabulle</b> – Tarçınlı / kakuleli çörek<span class="where">📍 Socker Sucker €, Stockholm 1897 €, Vete-Katten €</span></li>
-      <li><b>Prinsesstårta</b> – Yeşil marzipanlı kremalı pasta<span class="where">📍 Vete-Katten €, Thelins Konditori €</span></li>
-      <li><b>Lussekatt</b> – Safranlı Noel çöreği, Kasım sonunda çıkar<span class="where">📍 Vete-Katten €, herhangi bir fırın €</span></li>
+      <li><b>Kanelbulle / Kardemummabulle</b> – Tarçınlı / kakuleli çörek<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Socker%20Sucker%2C%20Stockholm" target="_blank" rel="noopener">Socker Sucker</a> €, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Stockholm%201897%2C%20Djurg%C3%A5rden%2C%20Stockholm" target="_blank" rel="noopener">Stockholm 1897</a> €, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm" target="_blank" rel="noopener">Vete-Katten</a> €</span></li>
+      <li><b>Prinsesstårta</b> – Yeşil marzipanlı kremalı pasta<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm" target="_blank" rel="noopener">Vete-Katten</a> €, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Thelins%20Konditori%2C%20Stockholm" target="_blank" rel="noopener">Thelins Konditori</a> €</span></li>
+      <li><b>Lussekatt</b> – Safranlı Noel çöreği, Kasım sonunda çıkar<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm" target="_blank" rel="noopener">Vete-Katten</a> €, herhangi bir fırın €</span></li>
       <li><b>Pepparkakor</b> – İnce zencefilli kurabiye<span class="where">📍 Noel pazarları €, her süpermarket €</span></li>
-      <li><b>Glögg</b> – Baharatlı sıcak şarap, Noel pazarlarında<span class="where">📍 Stortorget Noel pazarı €, Skansen Noel pazarı €</span></li>
+      <li><b>Glögg</b> – Baharatlı sıcak şarap, Noel pazarlarında<span class="where">📍 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Stortorget%2C%20Gamla%20stan%2C%20Stockholm" target="_blank" rel="noopener">Stortorget Noel pazarı</a> €, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Skansen%2C%20Stockholm" target="_blank" rel="noopener">Skansen Noel pazarı</a> €</span></li>
     </ul>
   </div>
 
   <div class="card">
     <h3>Tarihi restoranlar</h3>
     <ul>
-      <li><b>Den Gyldene Freden</b> – 1722'den beri, Gamla Stan · <span class="price">€€</span></li>
-      <li><b>Tennstopet</b> – Eski usul İsveç lokantası · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Den%20Gyldene%20Freden%2C%20%C3%96sterl%C3%A5nggatan%2051%2C%20Stockholm" target="_blank" rel="noopener">Den Gyldene Freden</a></b> – 1722'den beri, Gamla Stan · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tennstopet%2C%20Stockholm" target="_blank" rel="noopener">Tennstopet</a></b> – Eski usul İsveç lokantası · <span class="price">€€</span></li>
     </ul>
   </div>
 
@@ -703,12 +714,12 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">İsveç kahve molası</div>
     <p>Kanelbulle ~40–60 SEK, kahveyle ~75 SEK. Rezervasyon gerekmez. En yoğun saat hafta sonu 14:00–16:00, sabah veya hafta içi daha rahat.</p>
     <ul>
-      <li><b>Socker Sucker</b> – 2025 Stockholm birincisi · <span class="price">€</span>. Küçük, hafta sonu kuyruk olabilir</li>
-      <li><b>Stockholm 1897</b> – 2025 ikincisi, Vasa Müzesi'nin hemen yanında · <span class="price">€</span>. Küçük</li>
-      <li><b>K-märkt</b> – 2025 üçüncüsü · <span class="price">€</span>. Küçük</li>
-      <li><b>Skeppsbro Bageri</b> – 2024 birincisi, Gamla Stan yakını · <span class="price">€</span>. Küçük, çoğu kişi paket alıyor</li>
-      <li><b>Vete-Katten</b> – 1928'den beri klasik kafe, merkezde · <span class="price">€</span>. Büyük, genelde yer bulunur</li>
-      <li><b>Café Saturnus</b> – En büyük kanelbulle, Östermalm · <span class="price">€</span>. Hafta sonu öğleden sonra dolu olabilir</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Socker%20Sucker%2C%20Stockholm" target="_blank" rel="noopener">Socker Sucker</a></b> – 2025 Stockholm birincisi · <span class="price">€</span>. Küçük, hafta sonu kuyruk olabilir</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Stockholm%201897%2C%20Djurg%C3%A5rden%2C%20Stockholm" target="_blank" rel="noopener">Stockholm 1897</a></b> – 2025 ikincisi, Vasa Müzesi'nin hemen yanında · <span class="price">€</span>. Küçük</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=K-m%C3%A4rkt%2C%20Stockholm" target="_blank" rel="noopener">K-märkt</a></b> – 2025 üçüncüsü · <span class="price">€</span>. Küçük</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Skeppsbro%20Bageri%2C%20Stockholm" target="_blank" rel="noopener">Skeppsbro Bageri</a></b> – 2024 birincisi, Gamla Stan yakını · <span class="price">€</span>. Küçük, çoğu kişi paket alıyor</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm" target="_blank" rel="noopener">Vete-Katten</a></b> – 1928'den beri klasik kafe, merkezde · <span class="price">€</span>. Büyük, genelde yer bulunur</li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9%20Saturnus%2C%20Eriksbergsgatan%206%2C%20Stockholm" target="_blank" rel="noopener">Café Saturnus</a></b> – En büyük kanelbulle, Östermalm · <span class="price">€</span>. Hafta sonu öğleden sonra dolu olabilir</li>
     </ul>
   </div>
 
@@ -716,12 +727,12 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <h3>Barlar</h3>
     <p>Top 500 Bars 2026 listesinde Stockholm'dan 3 bar var.</p>
     <ul>
-      <li><b>Omnipollos hatt</b> – Craft bira ve pizza, Södermalm · <span class="price">€€</span></li>
-      <li><b>Oliver Twist</b> – Klasik pub, Södermalm · <span class="price">€€</span></li>
-      <li><b>Pharmarium</b> – Eski eczanede kokteyl bar, Gamla Stan · <span class="price">€€</span></li>
-      <li><b>Tjoget</b> – Top 500'de 91., Hornstull (Södermalm) · <span class="price">€€</span></li>
-      <li><b>Röda Huset</b> – Top 500'de 123., Sergels torg üstü, Malmskillnadsgatan 9 · <span class="price">€€€</span></li>
-      <li><b>Lucy's Flower Shop</b> – Top 500'de 225., Birger Jarlsgatan, çiçekçinin arkasında bodrum bar · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Omnipollos%20Hatt%2C%20Stockholm" target="_blank" rel="noopener">Omnipollos hatt</a></b> – Craft bira ve pizza, Södermalm · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Oliver%20Twist%2C%20Stockholm" target="_blank" rel="noopener">Oliver Twist</a></b> – Klasik pub, Södermalm · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmarium%2C%20Stortorget%207%2C%20Stockholm" target="_blank" rel="noopener">Pharmarium</a></b> – Eski eczanede kokteyl bar, Gamla Stan · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tjoget%2C%20Stockholm" target="_blank" rel="noopener">Tjoget</a></b> – Top 500'de 91., Hornstull (Södermalm) · <span class="price">€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%B6da%20Huset%2C%20Malmskillnadsgatan%209%2C%20Stockholm" target="_blank" rel="noopener">Röda Huset</a></b> – Top 500'de 123., Sergels torg üstü, Malmskillnadsgatan 9 · <span class="price">€€€</span></li>
+      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Lucy%27s%20Flower%20Shop%2C%20Stockholm" target="_blank" rel="noopener">Lucy's Flower Shop</a></b> – Top 500'de 225., Birger Jarlsgatan, çiçekçinin arkasında bodrum bar · <span class="price">€€</span></li>
     </ul>
   </div>
 
