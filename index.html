@@ -892,6 +892,8 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     c.insertBefore(head,h);main.appendChild(h);if(tr)main.appendChild(tr);main.appendChild(meta);head.appendChild(main);head.appendChild(chev);
     while(head.nextSibling)body.appendChild(head.nextSibling);c.appendChild(body);
     c.classList.add('fold');
+    [].some.call(body.querySelectorAll('li'),function(li){var b=li.querySelector('b');if(!b||!/^Giriş/.test(b.textContent))return false;
+      var m=li.textContent.replace(b.textContent,'').match(/\d+(?:\s*[–-]\s*\d+)?\s*SEK/);if(m)c.dataset.price=m[0].replace(/\s*[–-]\s*/,'–');return true;});
     function toggle(){setOpen(c,!c.classList.contains('open'));}
     head.addEventListener('click',function(e){if(e.target.closest('a'))return;toggle();});
     head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
@@ -906,6 +908,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     var n=now();dayOff=dayInfo(n,0);var pos=window.NEAR_POS;
     cards.forEach(function(c){var meta=c.querySelector('.meta');if(!meta)return;var s=S[c.id]||{},out=[];
       var st=status(s,n);if(st)out.push('<span class="st '+st.c+'">'+esc(st.t)+'</span>');
+      if(c.dataset.price)out.push('<span>Giriş '+esc(c.dataset.price)+'</span>');
       var d=deal(s,n);if(d)out.push('<span class="deal'+(d.now?' now':'')+'">'+esc(d.t)+'</span>');
       else if(s.free)out.push('<span class="deal">🎟️ Ücretsiz</span>');
       var co=pos&&coords(c.id);if(co){var m=dist(pos[0],pos[1],co[0],co[1]);out.push('<span>📍 '+(m<1000?Math.round(m/10)*10+' m':(m/1000).toFixed(m<10000?1:0).replace('.',',')+' km')+'</span>');}
