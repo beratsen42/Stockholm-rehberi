@@ -554,6 +554,17 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 </section>
 
 </main>
-<footer>Son güncelleme: 5 Kasım 2026</footer>
+<footer>Son güncelleme: <span id="last-updated">5 Kasım 2026, 14:25</span></footer>
+<script>
+fetch(location.href, {method: 'HEAD', cache: 'no-store'}).then(function (r) {
+  var lm = r.headers.get('Last-Modified');
+  if (!lm) return;
+  var d = new Date(lm);
+  if (isNaN(d)) return;
+  var day = d.toLocaleDateString('tr-TR', {day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Istanbul'});
+  var time = d.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Istanbul'});
+  document.getElementById('last-updated').textContent = day + ', ' + time;
+}).catch(function () {});
+</script>
 </body>
 </html>
