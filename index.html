@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stockholm Rehberi</title>
+<meta name="description" content="Stockholm gezi rehberi, 25–30 Kasım 2026">
+<meta name="theme-color" content="#0f2a44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f3ee; --card:#ffffff; --ink:#1b2430; --muted:#5d6876; --line:#e4ddd2;
+  --navy:#0f2a44; --gold:#c9962b; --gold-soft:#f4e7c8;
+  --blue:#2a6bd1; --red:#d0353f; --green:#2e9b55;
+  --warn-bg:#fdeceb; --warn-ink:#9e2a2f;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e141b; --card:#161e28; --ink:#e8ecf1; --muted:#9aa6b4; --line:#26313e;
+    --navy:#0b1f33; --gold:#e0b453; --gold-soft:#2c2617;
+    --warn-bg:#3a1a1c; --warn-ink:#f2a3a6;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,-apple-system,sans-serif}
+a{color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+header.hero{background:var(--navy);color:#fff;padding:40px 0 28px}
+.hero h1{font-family:Fraunces,Georgia,serif;font-size:40px;line-height:1.05;margin:0 0 6px;letter-spacing:-.5px}
+.hero p{margin:0;color:#c7d3e0}
+.hero .dates{display:inline-block;margin-top:14px;background:var(--gold);color:#1b1407;font-weight:600;font-size:14px;padding:4px 10px;border-radius:999px}
+
+nav.toc{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;text-decoration:none;font-size:14px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+
+section{padding:28px 0 8px}
+h2.sec{font-family:Fraunces,Georgia,serif;font-size:28px;margin:0 0 4px;letter-spacing:-.3px}
+.sec-sub{color:var(--muted);margin:0 0 16px;font-size:15px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 12px}
+.card h3{margin:0;font-size:17px;letter-spacing:.3px;text-transform:uppercase;font-weight:600}
+.card .tr{color:var(--muted);font-size:14px;margin:1px 0 8px}
+.card p{margin:0 0 8px}
+.card ul{margin:0;padding:0;list-style:none}
+.card li{padding:3px 0;font-size:15px}
+.card li b{font-weight:600}
+.num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-size:12px;font-weight:700;margin-right:8px;vertical-align:2px}
+.link{display:inline-block;margin-top:8px;font-size:14px;font-weight:500;color:var(--blue);text-decoration:none}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--warn-bg);color:var(--warn-ink);margin-left:6px;vertical-align:2px;text-transform:none;letter-spacing:0}
+.note{background:var(--gold-soft);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:8px}
+
+table.fl{width:100%;border-collapse:collapse;font-size:14px}
+table.fl th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.4px;padding:0 6px 6px 0}
+table.fl td{padding:8px 6px 8px 0;border-top:1px solid var(--line);vertical-align:top}
+table.fl td.code{font-weight:600;white-space:nowrap}
+.day{font-weight:600;margin:4px 0 6px}
+
+.line{display:flex;align-items:center;gap:8px;font-weight:600;margin:14px 0 6px}
+.dot{width:12px;height:12px;border-radius:50%}
+.b{background:var(--blue)} .r{background:var(--red)} .g{background:var(--green)}
+
+.food li{padding:8px 0;border-top:1px solid var(--line)}
+.food li:first-child{border-top:0}
+.food .where{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.price{font-weight:600;color:var(--gold)}
+footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Stockholm</h1>
+    <p>Gezi rehberi</p>
+    <span class="dates">25–30 Kasım 2026</span>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#ucuslar">Uçuşlar</a>
+  <a href="#konaklama">Konaklama</a>
+  <a href="#ulasim">Toplu taşıma</a>
+  <a href="#muzeler">Müzeler</a>
+  <a href="#gezi">Gezilecek yerler</a>
+  <a href="#metro">Metro sanatı</a>
+  <a href="#yemek">Yeme-içme</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="ucuslar">
+  <h2 class="sec">Uçuşlar</h2>
+  <p class="sec-sub">Pegasus · Saatler yerel saat. Stockholm, Türkiye'den 2 saat geride.</p>
+  <div class="card">
+    <div class="day">Gidiş · 25 Kasım Çarşamba</div>
+    <table class="fl">
+      <tr><th>Uçuş</th><th>Kalkış</th><th>Varış</th></tr>
+      <tr><td class="code">PC 2829</td><td>TZX 05:05</td><td>SAW 07:00</td></tr>
+      <tr><td class="code">PC 1279</td><td>SAW 08:45</td><td>ARN 10:25</td></tr>
+    </table>
+    <p class="note">SAW'da 1 sa 45 dk aktarma</p>
+  </div>
+  <div class="card">
+    <div class="day">Dönüş · 30 Kasım Pazartesi</div>
+    <table class="fl">
+      <tr><th>Uçuş</th><th>Kalkış</th><th>Varış</th></tr>
+      <tr><td class="code">PC 1280</td><td>ARN 11:25</td><td>SAW 17:00</td></tr>
+      <tr><td class="code">PC 2826</td><td>SAW 19:05</td><td>TZX 20:40</td></tr>
+    </table>
+    <p class="note">SAW'da 2 sa 5 dk aktarma</p>
+  </div>
+</section>
+
+<section id="konaklama">
+  <h2 class="sec">Konaklama</h2>
+  <div class="card">
+    <h3>Scandic GO</h3>
+    <div class="tr">Upplandsgatan 4</div>
+    <ul><li><b>Giriş</b> 15:00/16:00 · <b>Çıkış</b> 12:00</li></ul>
+  </div>
+</section>
+
+<section id="ulasim">
+  <h2 class="sec">Toplu taşıma</h2>
+  <div class="card">
+    <h3>Şehir içi</h3>
+    <p>7 günlük SL bileti, kişi başı 470 SEK (SL uygulaması). İlk binişte başlar.</p>
+  </div>
+  <div class="card">
+    <h3>Havalimanı</h3>
+    <p>Flixbus, Arlanda ↔ Cityterminalen, ~40 dk, ~75–100 SEK. Biletleri önceden alın. SL bileti geçmez.</p>
+  </div>
+</section>
+
+<section id="muzeler">
+  <h2 class="sec">Müzeler</h2>
+  <p class="sec-sub">Önem sırasına göre.</p>
+
+  <div class="card">
+    <h3><span class="num">1</span>Vasamuseet</h3>
+    <div class="tr">Vasa Müzesi</div>
+    <p>1628'de ilk seferinde batan, 333 yıl sonra çıkarılan savaş gemisi.</p>
+    <ul>
+      <li><b>Saat:</b> 10:00–17:00, Çarşamba 20:00'ye kadar</li>
+      <li><b>Giriş:</b> 195 SEK (Vrak ile kombine 315 SEK)</li>
+      <li><b>İngilizce tur:</b> ücretsiz, 25 dk, her gün saat başı 10:30–15:30</li>
+      <li><b>Not:</b> James Cameron geçici sergisi var</li>
+    </ul>
+    <a class="link" href="https://www.vasamuseet.se/en/visit/hours--admission/">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">2</span>Fotografiska</h3>
+    <div class="tr">Fotoğraf Müzesi</div>
+    <p>Dünyaca ünlü çağdaş fotoğraf müzesi. Üst kattaki bar manzaralı.</p>
+    <ul>
+      <li><b>Saat:</b> Her gün 10:00–23:00</li>
+      <li><b>Giriş:</b> 195 SEK. Çarşamba 18:00'den sonra 2 kişi 1 fiyatına (kişi başı 98 SEK)</li>
+      <li><b>Not:</b> 25 Kasım Çarşamba akşamı ideal</li>
+    </ul>
+    <a class="link" href="https://stockholm.fotografiska.com/en/visit">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">3</span>Kungliga slottet</h3>
+    <div class="tr">Kraliyet Sarayı</div>
+    <p>Kralın resmi sarayı, Gamla Stan'da. Kraliyet daireleri, hazine ve Üç Taç müzesi.</p>
+    <ul>
+      <li><b>Saat:</b> Her gün 10:00–16:00</li>
+      <li><b>Giriş:</b> 220 SEK</li>
+    </ul>
+    <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/the-royal-palace.html">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">4</span>Stadshuset</h3>
+    <div class="tr">Belediye Binası</div>
+    <p>Nobel ziyafetinin yapıldığı Mavi Salon ve altın mozaikli Altın Salon. Sadece rehberli turla girilir, ~45 dk.</p>
+    <ul>
+      <li><b>Rezervasyon: önerilir.</b> Biletler online, 1 hafta önceden açılır. Aynı gün 08:30'dan itibaren binadaki dükkandan da alınabilir</li>
+      <li><b>İngilizce tur:</b> 25 ve 27 Kas: 10:00–15:00 saat başı · 26, 28, 29 Kas: sadece 10:00 (28 Kas Prens Galerisi kapalı)</li>
+      <li><b>Giriş:</b> 150 SEK</li>
+    </ul>
+    <a class="link" href="https://stadshuset.stockholm/en/visit-stockholm-city-hall/guided-tours/">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">5</span>Skansen</h3>
+    <div class="tr">Açık Hava Müzesi</div>
+    <p>Dünyanın ilk açık hava müzesi: eski İsveç evleri ve İskandinav hayvanları.</p>
+    <ul>
+      <li><b>Saat:</b> Hafta içi 10:00–15:00. 27 Kasım'dan itibaren Noel pazarı: Cuma–Cumartesi 10:00–17:00, Pazar 10:00–16:00</li>
+      <li><b>Giriş:</b> Online daha ucuz</li>
+      <li><b>Not:</b> Noel pazarı 27–29 Kasım hafta sonuna denk geliyor</li>
+    </ul>
+    <a class="link" href="https://www.skansen.se/en/plan-your-visit/opening-hours-and-prices/">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">6</span>Nordiska museet</h3>
+    <div class="tr">İskandinav Müzesi</div>
+    <p>16. yüzyıldan bugüne İsveç'te günlük yaşam. Vasa'nın hemen karşısında.</p>
+    <ul>
+      <li><b>Saat:</b> Her gün 10:00–17:00, Çarşamba 20:00'ye kadar</li>
+      <li><b>Giriş:</b> 170 SEK</li>
+    </ul>
+    <a class="link" href="https://www.nordiskamuseet.se/en/visit-us/opening-hours/">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">7</span>ABBA The Museum</h3>
+    <div class="tr">ABBA Müzesi</div>
+    <p>ABBA'nın kostümleri, stüdyosu, interaktif sahne ve karaoke.</p>
+    <ul>
+      <li><b>Rezervasyon: ŞART.</b> Bilet sadece online, saatli giriş</li>
+      <li><b>Saat:</b> Her gün 10:00–18:00</li>
+      <li><b>Giriş:</b> 269–349 SEK (saate göre değişir)</li>
+      <li><b>Not:</b> 1,5–2 saat ayırın. 24 saat öncesine kadar iptal edilebilir</li>
+    </ul>
+    <a class="link" href="https://abbathemuseum.com/en/prices-opening-hours">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">8</span>Nationalmuseum</h3>
+    <div class="tr">Ulusal Sanat Müzesi</div>
+    <p>İsveç'in ulusal sanat ve tasarım müzesi. Rembrandt, Carl Larsson.</p>
+    <ul>
+      <li><b>Saat:</b> Salı–Pazar 11:00–17:00, Perşembe 20:00'ye kadar. Pazartesi kapalı</li>
+      <li><b>Giriş:</b> 160 SEK. Perşembe 17:00–20:00 ücretsiz</li>
+      <li><b>Not:</b> 26 Kasım Perşembe akşamı ücretsiz girilebilir</li>
+    </ul>
+    <a class="link" href="https://www.nationalmuseum.se/en">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">9</span>Nobelprismuseet</h3>
+    <div class="tr">Nobel Ödülü Müzesi</div>
+    <p>Gamla Stan, Stortorget'te. Küçük, ~1 saat.</p>
+    <ul><li><b>Giriş:</b> 150 SEK. Pazartesi kapalı</li></ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">10</span>Hallwylska museet</h3>
+    <div class="tr">Hallwyl Konağı</div>
+    <p>1900'lerin zengin bir ailesinin evi, eşyalarıyla olduğu gibi.</p>
+    <ul>
+      <li><b>Saat:</b> Salı–Cuma 12:00–16:00 (Çarşamba 19:00'a kadar), Cmt–Paz 11:00–17:00. Pazartesi kapalı</li>
+      <li><b>Giriş:</b> 150 SEK</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">11</span>Medeltidsmuseet</h3>
+    <div class="tr">Orta Çağ Müzesi</div>
+    <p>Kraliyet Sarayı'nın dibinde.</p>
+    <ul><li><b>Giriş:</b> Ücretsiz</li></ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">12</span>Stadsmuseet</h3>
+    <div class="tr">Şehir Müzesi</div>
+    <p>Stockholm'ün tarihi, Slussen'de.</p>
+    <ul><li><b>Giriş:</b> Ücretsiz</li></ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">13</span>Moderna Museet</h3>
+    <div class="tr">Modern Sanat Müzesi</div>
+    <p>Skeppsholmen adasında.</p>
+    <ul>
+      <li><b>Saat:</b> Salı ve Cuma 10:00–20:00, diğer günler 10:00–18:00. Pazartesi kapalı</li>
+      <li><b>Giriş:</b> 170 SEK. Cuma 18:00–20:00 ücretsiz</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">14</span>Vrak</h3>
+    <div class="tr">Batıklar Müzesi</div>
+    <p>Baltık'taki batık gemiler. Vasa'nın yanında, Djurgården.</p>
+    <ul>
+      <li><b>Saat:</b> Her gün 10:00–17:00, Çarşamba 20:00'ye kadar</li>
+      <li><b>Giriş:</b> 185 SEK. Vasa ile kombine 315 SEK</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">15</span>The Viking Museum</h3>
+    <div class="tr">Viking Müzesi</div>
+    <p>Djurgården, interaktif ve hikâyeli tren yolculuğu.</p>
+    <ul>
+      <li><b>Saat:</b> Hafta içi 11:00–17:00, hafta sonu 10:00–17:00</li>
+      <li><b>Giriş:</b> 239 SEK</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">16</span>Spritmuseum</h3>
+    <div class="tr">İçki Müzesi</div>
+    <p>İsveç içki kültürü, Djurgården.</p>
+    <ul>
+      <li><b>Saat:</b> Her gün 11:00–22:00</li>
+      <li><b>Giriş:</b> 190 SEK</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">17</span>Sjöhistoriska museet</h3>
+    <div class="tr">Denizcilik Müzesi</div>
+    <p>Gemi modelleri, denizcilik tarihi.</p>
+    <ul><li><b>Giriş:</b> 150 SEK</li></ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">18</span>Etnografiska museet</h3>
+    <div class="tr">Etnografya Müzesi</div>
+    <p>Dünya kültürlerinden eserler.</p>
+    <ul><li><b>Giriş:</b> 160 SEK</li></ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">19</span>Ekonomiska museet</h3>
+    <div class="tr">Ekonomi Müzesi</div>
+    <p>Para ve ekonomi tarihi.</p>
+    <ul><li><b>Giriş:</b> Her gün 16:00–17:00 ve Çarşamba 17:00–20:00 yarı fiyat (90 SEK)</li></ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">20</span>Spårvägsmuseet</h3>
+    <div class="tr">Ulaşım Müzesi</div>
+    <p>Eski tramvay, otobüs ve metro vagonları.</p>
+    <ul>
+      <li><b>Saat:</b> Salı–Pazar 11:00–17:00. Pazartesi kapalı</li>
+      <li><b>Not:</b> Perşembe 17:00–21:00 ücretsiz (3 Ara hariç)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="gezi">
+  <h2 class="sec">Gezilecek yerler</h2>
+
+  <div class="card">
+    <h3>Gamla Stan</h3>
+    <div class="tr">Eski Şehir</div>
+    <p>Dar taş sokaklar, renkli Stortorget meydanı. Kraliyet Sarayı ve Nobel Müzesi burada.</p>
+    <ul><li><b>Storkyrkan:</b> Şehrin en eski kilisesi, sarayın yanında</li></ul>
+  </div>
+
+  <div class="card">
+    <h3>Noel pazarları</h3>
+    <p>27–29 Kasım hafta sonu ikisi de açık.</p>
+    <ul>
+      <li><b>Stortorget (Gamla Stan):</b> ~21 Kas–23 Ara, her gün. Paz–Per 11:00–18:00, Cum–Cmt 11:00–19:00. Ücretsiz</li>
+      <li><b>Skansen:</b> 27 Kas–20 Ara, sadece Cum–Paz. Cum–Cmt 10:00–17:00, Paz 10:00–16:00. Skansen girişine dahil</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Södermalm</h3>
+    <div class="tr">Güney Adası</div>
+    <p>Kafeler, vintage dükkanlar. Monteliusvägen'den Gamla Stan ve Stadshuset manzarası.</p>
+    <ul><li><b>Skinnarviksberget:</b> Kayalık tepe, şehrin en iyi panoramalarından. Ücretsiz</li></ul>
+  </div>
+
+  <div class="card">
+    <h3>Östermalms Saluhall</h3>
+    <div class="tr">Tarihi Yemek Pazarı</div>
+    <p>1888'den kalma kapalı çarşı. Öğle yemeği için iyi.</p>
+    <ul><li><b>Not:</b> Pazar kapalı</li></ul>
+  </div>
+
+  <div class="card">
+    <h3>Riksdagshuset</h3>
+    <div class="tr">Parlamento Binası</div>
+    <p>Ücretsiz rehberli tur, hafta sonları. Önceden rezervasyon yok, 28 kişilik, erken gelin. Güvenlik kontrolü var.</p>
+  </div>
+
+  <div class="card">
+    <h3>Stadshuset manzara noktası</h3>
+    <p>Belediye Binası'nı karşıdan gören seyir noktası. Ücretsiz.</p>
+  </div>
+
+  <div class="card">
+    <h3>Brunkebergstunneln</h3>
+    <div class="tr">Brunkeberg Tüneli</div>
+    <p>Norrmalm'da 1880'lerden kalma yaya tüneli. Ücretsiz.</p>
+  </div>
+
+  <div class="card">
+    <h3>Skogskyrkogården</h3>
+    <div class="tr">Orman Mezarlığı</div>
+    <p>UNESCO mirası. Yeşil hat T18, Skogskyrkogården durağı. Ücretsiz.</p>
+  </div>
+
+  <div class="card">
+    <h3>Riddarholmskyrkan <span class="tag">Geçici olarak kapalı</span></h3>
+    <div class="tr">Riddarholmen Kilisesi</div>
+    <p>İsveç krallarının mezarları.</p>
+  </div>
+
+  <div class="card">
+    <h3>Drottningholm slott</h3>
+    <div class="tr">Drottningholm Sarayı</div>
+    <p>Kraliyet ailesinin yaşadığı saray, UNESCO mirası. Şehir dışında, metro + otobüsle ~45 dk.</p>
+    <ul>
+      <li><b>Saat:</b> Kasım'da sadece hafta sonu (28–29 Kas), ~10:00–16:00</li>
+      <li><b>Giriş:</b> 170 SEK</li>
+    </ul>
+    <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/drottningholm-palace.html">Bilet ve saatler →</a>
+  </div>
+
+  <div class="card">
+    <h3>Sigtuna</h3>
+    <div class="tr">İsveç'in en eski kasabası</div>
+    <p>Ahşap evler, göl kıyısı. Banliyö treni + otobüsle ~1 saat, SL biletiyle.</p>
+    <ul><li><b>Fika:</b> Pelle &amp; Maries Brödbutik'in ünlü kanelbulle'si</li></ul>
+  </div>
+</section>
+
+<section id="metro">
+  <h2 class="sec">Metro sanatı</h2>
+  <p class="sec-sub">SL biletiyle ücretsiz. T-Centralen üç hattın da kesiştiği yer. Otele en yakın: Hötorget ve T-Centralen.</p>
+
+  <div class="card">
+    <div class="line"><span class="dot b"></span>Mavi hat (T10, T11)</div>
+    <ul>
+      <li><b>Kungsträdgården</b> – Hattın son durağı, kırmızı-yeşil zemin, heykeller. En etkileyicisi</li>
+      <li><b>T-Centralen</b> – Mavi yaprak ve sarmaşıklar, sanatlı ilk istasyon</li>
+      <li><b>Rådhuset</b> – Ham kaya duvarlar</li>
+      <li><b>Fridhemsplan</b> – Ham kaya duvarlar (yeşil hat da durur)</li>
+      <li><b>Västra skogen</b> – Avrupa'nın en uzun yürüyen merdivenlerinden</li>
+      <li><b>Solna strand</b> (T10) – Gökyüzü teması</li>
+      <li><b>Tensta</b> (T10) – Göçmenlere adanmış renkli resimler</li>
+      <li><b>Solna centrum</b> (T11) – Kızıl gökyüzü, yeşil orman</li>
+      <li><b>Hallonbergen</b> (T11) – Çocuk çizimleri</li>
+    </ul>
+    <p class="note">Västra skogen'den sonra hat ikiye ayrılır: T10 Solna strand–Tensta, T11 Solna centrum–Hallonbergen.</p>
+
+    <div class="line"><span class="dot r"></span>Kırmızı hat (T14, Mörby centrum yönü)</div>
+    <ul>
+      <li><b>Östermalmstorg</b> – Siri Derkert'in siyah-beyaz duvar çizimleri</li>
+      <li><b>Stadion</b> – Mavi mağara tavanında gökkuşağı</li>
+      <li><b>Tekniska högskolan</b> – Bilim teması, çokyüzlüler</li>
+      <li><b>Mörby centrum</b> – Kaya tavanda renkli boyamalar</li>
+    </ul>
+
+    <div class="line"><span class="dot g"></span>Yeşil hat (T17, T18, T19)</div>
+    <ul>
+      <li><b>Hötorget</b> – 1950'ler havası, neon tavan</li>
+      <li><b>Odenplan</b> – Tavandan sarkan 400 m ışık çizgisi</li>
+      <li><b>Thorildsplan</b> – 8-bit video oyunu karoları</li>
+      <li><b>Bagarmossen</b> (T17, Skarpnäck yönü)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="yemek">
+  <h2 class="sec">Yeme-içme</h2>
+  <p class="sec-sub"><span class="price">€</span> ucuz · <span class="price">€€</span> orta, ana yemek ~200–300 SEK · <span class="price">€€€</span> pahalıca</p>
+
+  <div class="card">
+    <h3>Denenecekler</h3>
+    <ul class="food">
+      <li><b>Köttbullar</b> – Köfte, krema sos, patates püresi, yaban mersini reçeli<span class="where">📍 Pelikan €€, Meatballs for the People €€, Tradition €€</span></li>
+      <li><b>Toast Skagen</b> – Kızarmış ekmek üstünde karides salatası<span class="where">📍 Tennstopet €€, Pelikan €€</span></li>
+      <li><b>Gravad lax</b> – Tuz ve dereotuyla kürlenmiş somon<span class="where">📍 Östermalms Saluhall €€–€€€, Tradition €€</span></li>
+      <li><b>Sill</b> – Marine ringa balığı<span class="where">📍 Nystekt Strömming € (seyyar araba, Kornhamnstorg, Gamla Stan), Östermalms Saluhall €€–€€€</span></li>
+      <li><b>Janssons frestelse</b> – Patates, soğan ve hamsiyle fırın graten<span class="where">📍 Pelikan €€, Tennstopet €€</span></li>
+      <li><b>Plankfisk</b> – Tahta servis tahtasında fırınlanmış balık, patates püresi ve hollandez sosla<span class="where">📍 Klasik lokantalarda menüye bakın, dagens lunch'ta sık çıkar</span></li>
+      <li><b>Kanelbulle / Kardemummabulle</b> – Tarçınlı / kakuleli çörek<span class="where">📍 Socker Sucker €, Stockholm 1897 €, Vete-Katten €</span></li>
+      <li><b>Prinsesstårta</b> – Yeşil marzipanlı kremalı pasta<span class="where">📍 Vete-Katten €, Thelins Konditori €</span></li>
+      <li><b>Lussekatt</b> – Safranlı Noel çöreği, Kasım sonunda çıkar<span class="where">📍 Vete-Katten €, herhangi bir fırın €</span></li>
+      <li><b>Pepparkakor</b> – İnce zencefilli kurabiye<span class="where">📍 Noel pazarları €, her süpermarket €</span></li>
+      <li><b>Glögg</b> – Baharatlı sıcak şarap, Noel pazarlarında<span class="where">📍 Stortorget Noel pazarı €, Skansen Noel pazarı €</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Tarihi restoranlar</h3>
+    <ul>
+      <li><b>Den Gyldene Freden</b> – 1722'den beri, Gamla Stan · <span class="price">€€</span></li>
+      <li><b>Tennstopet</b> – Eski usul İsveç lokantası · <span class="price">€€</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Fika</h3>
+    <div class="tr">İsveç kahve molası</div>
+    <p>Kanelbulle ~40–60 SEK, kahveyle ~75 SEK. Rezervasyon gerekmez. En yoğun saat hafta sonu 14:00–16:00, sabah veya hafta içi daha rahat.</p>
+    <ul>
+      <li><b>Socker Sucker</b> – 2025 Stockholm birincisi · <span class="price">€</span>. Küçük, hafta sonu kuyruk olabilir</li>
+      <li><b>Stockholm 1897</b> – 2025 ikincisi, Vasa Müzesi'nin hemen yanında · <span class="price">€</span>. Küçük</li>
+      <li><b>K-märkt</b> – 2025 üçüncüsü · <span class="price">€</span>. Küçük</li>
+      <li><b>Skeppsbro Bageri</b> – 2024 birincisi, Gamla Stan yakını · <span class="price">€</span>. Küçük, çoğu kişi paket alıyor</li>
+      <li><b>Vete-Katten</b> – 1928'den beri klasik kafe, merkezde · <span class="price">€</span>. Büyük, genelde yer bulunur</li>
+      <li><b>Café Saturnus</b> – En büyük kanelbulle, Östermalm · <span class="price">€</span>. Hafta sonu öğleden sonra dolu olabilir</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Barlar</h3>
+    <ul>
+      <li><b>Omnipollos hatt</b> – Craft bira ve pizza, Södermalm · <span class="price">€€</span></li>
+      <li><b>Oliver Twist</b> – Klasik pub, Södermalm · <span class="price">€€</span></li>
+      <li><b>Pharmarium</b> – Eski eczanede kokteyl bar, Gamla Stan · <span class="price">€€</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>İpuçları</h3>
+    <ul>
+      <li><b>Dagens lunch:</b> Hafta içi 11:00–14:00 günün menüsü, ~130–180 SEK. Salata, ekmek, kahve dahil</li>
+      <li><b>Alkol:</b> Mağazada sadece Systembolaget. Cumartesi 15:00'te kapanır, Pazar kapalı</li>
+      <li><b>Rezervasyon:</b> Akşam yemeği için Pelikan, Meatballs for the People, Tradition, Den Gyldene Freden ve Tennstopet'te önceden masa ayırtın, özellikle Cuma–Cumartesi. Kafe, fırın ve Noel pazarlarına gerek yok</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer>Son güncelleme: 5 Kasım 2026</footer>
+</body>
+</html>
