@@ -84,6 +84,7 @@ li.flash{border-radius:8px}
 .card.fold.open .fold-chev{transform:rotate(180deg)}
 .card.fold:not(.open) .fold-body{display:none}
 .fold-body{margin-top:8px}
+.fold-main .tr{margin:1px 0 0}
 .meta{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:13px;color:var(--muted);line-height:1.4}
 .meta:empty{display:none}
 .meta .st{font-weight:600}
@@ -887,8 +888,9 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     var chev=document.createElement('span');chev.className='fold-chev';chev.setAttribute('aria-hidden','true');chev.textContent='▾';
     var body=document.createElement('div');body.className='fold-body';body.id=(c.id||'card'+i)+'-body';
     head.setAttribute('aria-controls',body.id);head.setAttribute('aria-expanded','false');
-    while(h.nextSibling)body.appendChild(h.nextSibling);
-    c.insertBefore(head,h);main.appendChild(h);main.appendChild(meta);head.appendChild(main);head.appendChild(chev);c.appendChild(body);
+    var tr=h.nextElementSibling;if(!(tr&&tr.classList.contains('tr')))tr=null;
+    c.insertBefore(head,h);main.appendChild(h);if(tr)main.appendChild(tr);main.appendChild(meta);head.appendChild(main);head.appendChild(chev);
+    while(head.nextSibling)body.appendChild(head.nextSibling);c.appendChild(body);
     c.classList.add('fold');
     function toggle(){setOpen(c,!c.classList.contains('open'));}
     head.addEventListener('click',function(e){if(e.target.closest('a'))return;toggle();});
