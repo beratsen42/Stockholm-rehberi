@@ -76,7 +76,19 @@ a.map{color:var(--map);text-decoration:underline;text-decoration-thickness:1.5px
 .free li:first-child{border-top:0}
 .free a.jump{color:inherit;font-weight:600;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--gold) 70%,transparent);text-decoration-thickness:2px;text-underline-offset:3px}
 @keyframes flash{0%,40%{box-shadow:0 0 0 3px var(--gold)}100%{box-shadow:0 0 0 3px transparent}}
-.card.flash{animation:flash 1.8s ease-out}
+.card.flash,li.flash{animation:flash 1.8s ease-out}
+li.flash{border-radius:8px}
+.near-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);background:var(--gold-soft);color:var(--ink);font:600 15px Inter,system-ui,sans-serif;padding:10px 16px;border-radius:999px;cursor:pointer}
+.near-st{color:var(--muted);font-size:14px;margin:10px 0 0}
+.near-st:empty{display:none}
+.near-list{list-style:none;margin:6px 0 0;padding:0}
+.near-list li{display:flex;align-items:baseline;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.near-list li:first-child{border-top:0}
+.near-list .ic{flex:none;width:22px;text-align:center}
+.near-list .nm{flex:1;min-width:0}
+.near-list a.jump{color:inherit;font-weight:600;text-decoration:none}
+.near-list .d{flex:none;color:var(--muted);font-size:13px;white-space:nowrap}
+.near-list a.map{flex:none;font-size:13px}
 .back{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--navy);color:#fff;border:1px solid var(--gold);font:600 14px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
 .back.show{opacity:1;transform:none;pointer-events:auto}
 .note{background:var(--gold-soft);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:8px}
@@ -171,6 +183,16 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 
 <main class="wrap">
 
+<section id="yakin">
+  <h2 class="sec">Yakınınızda</h2>
+  <p class="sec-sub">Rehberdeki yerlerden 1 km içindekiler. Konumun sadece telefonunda kullanılır.</p>
+  <div class="card" id="near" data-return="↑ Yakınınızda">
+    <button type="button" class="near-btn" id="near-btn">📍 Yakınımdakileri göster</button>
+    <p class="near-st" id="near-st" aria-live="polite"></p>
+    <ul class="near-list" id="near-list"></ul>
+  </div>
+</section>
+
 <section id="ucuslar">
   <h2 class="sec">Uçuşlar</h2>
   <p class="sec-sub">Pegasus · Saatler yerel saat. Stockholm, Türkiye'den 2 saat geride.</p>
@@ -196,7 +218,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 
 <section id="konaklama">
   <h2 class="sec">Konaklama</h2>
-  <div class="card">
+  <div class="card" id="p-otel">
     <h3 lang="sv">Scandic GO</h3>
     <div class="tr">Upplandsgatan 4</div>
     <ul><li><b>Giriş</b> 15:00/16:00 · <b>Çıkış</b> 12:00</li></ul>
@@ -220,7 +242,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   <h2 class="sec">Müzeler</h2>
   <p class="sec-sub">Önem sırasına göre.</p>
 
-  <div class="card free" id="indirim">
+  <div class="card free" id="indirim" data-return="↑ İndirimli günler">
     <h3>Ücretsiz ve indirimli günler</h3>
     <ul>
       <li><b>Her gün:</b> <a class="jump" href="#m-stadsmuseet">Stadsmuseet</a> her zaman ücretsiz. <a class="jump" href="#m-ekonomiska">Ekonomiska museet</a> 16:00–17:00 yarı fiyat (Pazartesi kapalı)</li>
@@ -231,7 +253,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-vasa">
     <h3><span class="num">1</span>Vasamuseet</h3>
     <div class="tr">Vasa Müzesi</div>
     <p>1628'de ilk seferinde batan, 333 yıl sonra çıkarılan savaş gemisi.</p>
@@ -256,7 +278,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://stockholm.fotografiska.com/en/visit" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Fotografiska%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-slottet">
     <h3 lang="sv"><span class="num">3</span>Kungliga slottet</h3>
     <div class="tr">Kraliyet Sarayı</div>
     <p>Kralın resmi sarayı, Gamla Stan'da. Kraliyet daireleri, hazine ve Üç Taç müzesi.</p>
@@ -267,7 +289,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/the-royal-palace.html" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Kungliga%20slottet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-stadshuset">
     <h3><span class="num">4</span>Stadshuset</h3>
     <div class="tr">Belediye Binası</div>
     <p>Nobel ziyafetinin yapıldığı Mavi Salon ve altın mozaikli Altın Salon. Sadece rehberli turla girilir, ~45 dk.</p>
@@ -279,7 +301,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://stadshuset.stockholm/en/visit-stockholm-city-hall/guided-tours/" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Stockholms%20stadshus" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-skansen">
     <h3><span class="num">5</span>Skansen</h3>
     <div class="tr">Açık Hava Müzesi</div>
     <p>Dünyanın ilk açık hava müzesi: eski İsveç evleri ve İskandinav hayvanları.</p>
@@ -291,7 +313,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.skansen.se/en/plan-your-visit/opening-hours-and-prices/" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Skansen%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-nordiska">
     <h3 lang="sv"><span class="num">6</span>Nordiska museet</h3>
     <div class="tr">İskandinav Müzesi</div>
     <p>16. yüzyıldan bugüne İsveç'te günlük yaşam. Vasa'nın hemen karşısında.</p>
@@ -302,7 +324,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.nordiskamuseet.se/en/visit-us/opening-hours/" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nordiska%20museet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-abba">
     <h3><span class="num">7</span>ABBA The Museum</h3>
     <div class="tr">ABBA Müzesi</div>
     <p>ABBA'nın kostümleri, stüdyosu, interaktif sahne ve karaoke.</p>
@@ -327,7 +349,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.nationalmuseum.se/en" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nationalmuseum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-nobel">
     <h3 lang="sv"><span class="num">9</span>Nobelprismuseet</h3>
     <div class="tr">Nobel Ödülü Müzesi</div>
     <p>Gamla Stan, Stortorget'te. Küçük, ~1 saat.</p>
@@ -337,7 +359,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.nobelprizemuseum.se/en/plan-your-visit/" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Nobelprismuseet%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-hallwylska">
     <h3><span class="num">10</span>Hallwylska museet</h3>
     <div class="tr">Hallwyl Konağı</div>
     <p>1900'lerin zengin bir ailesinin evi, eşyalarıyla olduğu gibi.</p>
@@ -382,7 +404,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.vrak.se/en/visit/buy-ticket" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Vrak%20Museum%20of%20Wrecks%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-viking">
     <h3 lang="en"><span class="num">14</span>The Viking Museum</h3>
     <div class="tr">Viking Müzesi</div>
     <p>Djurgården, interaktif ve hikâyeli tren yolculuğu.</p>
@@ -393,7 +415,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://thevikingmuseum.com/en/visit-us" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Viking%20Museum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-sprit">
     <h3 lang="sv"><span class="num">15</span>Spritmuseum</h3>
     <div class="tr">İçki Müzesi</div>
     <p>İsveç içki kültürü, Djurgården.</p>
@@ -404,7 +426,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://spritmuseum.se/en/visit-spritmuseum/" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Spritmuseum%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="m-sjohistoriska">
     <h3 lang="sv"><span class="num">16</span>Sjöhistoriska museet</h3>
     <div class="tr">Denizcilik Müzesi</div>
     <p>Gemi modelleri, denizcilik tarihi.</p>
@@ -452,7 +474,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 <section id="gezi">
   <h2 class="sec">Gezilecek yerler</h2>
 
-  <div class="card">
+  <div class="card" id="g-gamlastan">
     <h3>Gamla Stan</h3>
     <div class="tr">Eski Şehir</div>
     <p>Dar taş sokaklar, renkli Stortorget meydanı. Kraliyet Sarayı ve Nobel Müzesi burada.</p>
@@ -469,7 +491,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-sodermalm">
     <h3>Södermalm</h3>
     <div class="tr">Güney Adası</div>
     <p>Kafeler, vintage dükkanlar. Monteliusvägen'den Gamla Stan ve Stadshuset manzarası.</p>
@@ -477,7 +499,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=S%C3%B6dermalm%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-saluhall">
     <h3>Östermalms Saluhall</h3>
     <div class="tr">Tarihi Yemek Pazarı</div>
     <p>1888'den kalma kapalı çarşı. Öğle yemeği için iyi.</p>
@@ -485,7 +507,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%96stermalms%20saluhall%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-riksdag">
     <h3 lang="sv">Riksdagshuset</h3>
     <div class="tr">Parlamento Binası</div>
     <p>Ücretsiz rehberli tur, hafta sonları. Önceden rezervasyon yok, 28 kişilik, erken gelin. Güvenlik kontrolü var.</p>
@@ -495,34 +517,34 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.riksdagen.se/sv/aktuellt/kalendersida/?cmskategori=startsida&amp;doktyp=kal-vi" target="_blank" rel="noopener">Tur detayları →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Riksdagshuset%2C%20Riksgatan%203%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-manzara">
     <h3>Stadshuset manzara noktası</h3>
     <p>Belediye Binası'nı karşıdan gören seyir noktası. Ücretsiz.</p>
     <a class="link maplink" href="https://maps.app.goo.gl/TpobiNhv8VX1Gcse8" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-brunkeberg">
     <h3>Brunkebergstunneln</h3>
     <div class="tr">Brunkeberg Tüneli</div>
     <p>Norrmalm'da 1880'lerden kalma yaya tüneli. Ücretsiz.</p>
     <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Brunkebergstunneln%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-skogskyrkogarden">
     <h3>Skogskyrkogården</h3>
     <div class="tr">Orman Mezarlığı</div>
     <p>UNESCO mirası. Yeşil hat T18, Skogskyrkogården durağı. Ücretsiz.</p>
     <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Skogskyrkog%C3%A5rden%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-riddarholm">
     <h3 lang="sv">Riddarholmskyrkan <span class="tag" lang="tr">Geçici olarak kapalı</span></h3>
     <div class="tr">Riddarholmen Kilisesi</div>
     <p>İsveç krallarının mezarları.</p>
     <a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Riddarholmskyrkan%2C%20Stockholm" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-drottningholm">
     <h3 lang="sv">Drottningholm slott</h3>
     <div class="tr">Drottningholm Sarayı</div>
     <p>Kraliyet ailesinin yaşadığı saray, UNESCO mirası. Şehir dışında, metro + otobüsle ~45 dk.</p>
@@ -533,7 +555,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <a class="link" href="https://www.kungligaslotten.se/english/royal-palaces-and-sites/drottningholm-palace.html" target="_blank" rel="noopener">Bilet ve saatler →</a><a class="link maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Drottningholms%20slott" target="_blank" rel="noopener">Haritada aç →</a>
   </div>
 
-  <div class="card">
+  <div class="card" id="g-sigtuna">
     <h3 lang="sv">Sigtuna</h3>
     <div class="tr">İsveç'in en eski kasabası</div>
     <p>Ahşap evler, göl kıyısı. Banliyö treni + otobüsle ~1 saat, SL biletiyle.</p>
@@ -696,7 +718,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   <h2 class="sec">Yeme-içme</h2>
   <p class="sec-sub"><span class="price">€</span> ucuz · <span class="price">€€</span> orta, ana yemek ~200–300 SEK · <span class="price">€€€</span> pahalıca</p>
 
-  <div class="card">
+  <div class="card" id="y-denenecekler">
     <h3>Denenecekler</h3>
     <ul class="food">
       <li><b>Köttbullar</b> – Köfte, krema sos, patates püresi, yaban mersini reçeli<span class="where"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pelikan%2C%20Blekingegatan%2040%2C%20Stockholm" target="_blank" rel="noopener">Pelikan</a> €€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Meatballs%20for%20the%20People%2C%20Stockholm" target="_blank" rel="noopener">Meatballs for the People</a> €€, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurang%20Tradition%2C%20Stockholm" target="_blank" rel="noopener">Tradition</a> €€</span></li>
@@ -716,8 +738,8 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   <div class="card">
     <h3>Tarihi restoranlar</h3>
     <ul>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Den%20Gyldene%20Freden%2C%20%C3%96sterl%C3%A5nggatan%2051%2C%20Stockholm" target="_blank" rel="noopener">Den Gyldene Freden</a></b> – 1722'den beri, Gamla Stan · <span class="price">€€</span></li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tennstopet%2C%20Stockholm" target="_blank" rel="noopener">Tennstopet</a></b> – Eski usul İsveç lokantası · <span class="price">€€</span></li>
+      <li id="y-freden"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Den%20Gyldene%20Freden%2C%20%C3%96sterl%C3%A5nggatan%2051%2C%20Stockholm" target="_blank" rel="noopener">Den Gyldene Freden</a></b> – 1722'den beri, Gamla Stan · <span class="price">€€</span></li>
+      <li id="y-tennstopet"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tennstopet%2C%20Stockholm" target="_blank" rel="noopener">Tennstopet</a></b> – Eski usul İsveç lokantası · <span class="price">€€</span></li>
     </ul>
   </div>
 
@@ -726,12 +748,12 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <div class="tr">İsveç kahve molası</div>
     <p>Kanelbulle ~40–60 SEK, kahveyle ~75 SEK. Rezervasyon gerekmez. En yoğun saat hafta sonu 14:00–16:00, sabah veya hafta içi daha rahat.</p>
     <ul>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Socker%20Sucker%2C%20Stockholm" target="_blank" rel="noopener">Socker Sucker</a></b> – 2025 Stockholm birincisi · <span class="price">€</span>. Küçük, hafta sonu kuyruk olabilir</li>
+      <li id="y-socker"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Socker%20Sucker%2C%20Stockholm" target="_blank" rel="noopener">Socker Sucker</a></b> – 2025 Stockholm birincisi · <span class="price">€</span>. Küçük, hafta sonu kuyruk olabilir</li>
       <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Stockholm%201897%2C%20Djurg%C3%A5rden%2C%20Stockholm" target="_blank" rel="noopener">Stockholm 1897</a></b> – 2025 ikincisi, Vasa Müzesi'nin hemen yanında · <span class="price">€</span>. Küçük</li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=K-m%C3%A4rkt%2C%20Stockholm" target="_blank" rel="noopener">K-märkt</a></b> – 2025 üçüncüsü · <span class="price">€</span>. Küçük</li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Skeppsbro%20Bageri%2C%20Stockholm" target="_blank" rel="noopener">Skeppsbro Bageri</a></b> – 2024 birincisi, Gamla Stan yakını · <span class="price">€</span>. Küçük, çoğu kişi paket alıyor</li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm" target="_blank" rel="noopener">Vete-Katten</a></b> – 1928'den beri klasik kafe, merkezde · <span class="price">€</span>. Büyük, genelde yer bulunur</li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9%20Saturnus%2C%20Eriksbergsgatan%206%2C%20Stockholm" target="_blank" rel="noopener">Café Saturnus</a></b> – En büyük kanelbulle, Östermalm · <span class="price">€</span>. Hafta sonu öğleden sonra dolu olabilir</li>
+      <li id="y-kmarkt"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=K-m%C3%A4rkt%2C%20Stockholm" target="_blank" rel="noopener">K-märkt</a></b> – 2025 üçüncüsü · <span class="price">€</span>. Küçük</li>
+      <li id="y-skeppsbro"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Skeppsbro%20Bageri%2C%20Stockholm" target="_blank" rel="noopener">Skeppsbro Bageri</a></b> – 2024 birincisi, Gamla Stan yakını · <span class="price">€</span>. Küçük, çoğu kişi paket alıyor</li>
+      <li id="y-vetekatten"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm" target="_blank" rel="noopener">Vete-Katten</a></b> – 1928'den beri klasik kafe, merkezde · <span class="price">€</span>. Büyük, genelde yer bulunur</li>
+      <li id="y-saturnus"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9%20Saturnus%2C%20Eriksbergsgatan%206%2C%20Stockholm" target="_blank" rel="noopener">Café Saturnus</a></b> – En büyük kanelbulle, Östermalm · <span class="price">€</span>. Hafta sonu öğleden sonra dolu olabilir</li>
     </ul>
   </div>
 
@@ -739,12 +761,12 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
     <h3>Barlar</h3>
     <p>Top 500 Bars 2026 listesinde Stockholm'dan 3 bar var.</p>
     <ul>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Omnipollos%20Hatt%2C%20Stockholm" target="_blank" rel="noopener">Omnipollos hatt</a></b> – Craft bira ve pizza, Södermalm · <span class="price">€€</span></li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Oliver%20Twist%2C%20Stockholm" target="_blank" rel="noopener">Oliver Twist</a></b> – Klasik pub, Södermalm · <span class="price">€€</span></li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmarium%2C%20Stortorget%207%2C%20Stockholm" target="_blank" rel="noopener">Pharmarium</a></b> – Eski eczanede kokteyl bar, Gamla Stan · <span class="price">€€</span></li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tjoget%2C%20Stockholm" target="_blank" rel="noopener">Tjoget</a></b> – Top 500'de 91., Hornstull (Södermalm) · <span class="price">€€</span></li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%B6da%20Huset%2C%20Malmskillnadsgatan%209%2C%20Stockholm" target="_blank" rel="noopener">Röda Huset</a></b> – Top 500'de 123., Sergels torg üstü, Malmskillnadsgatan 9 · <span class="price">€€€</span></li>
-      <li><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Lucy%27s%20Flower%20Shop%2C%20Stockholm" target="_blank" rel="noopener">Lucy's Flower Shop</a></b> – Top 500'de 225., Birger Jarlsgatan, çiçekçinin arkasında bodrum bar · <span class="price">€€</span></li>
+      <li id="y-omnipollo"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Omnipollos%20Hatt%2C%20Stockholm" target="_blank" rel="noopener">Omnipollos hatt</a></b> – Craft bira ve pizza, Södermalm · <span class="price">€€</span></li>
+      <li id="y-olivertwist"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Oliver%20Twist%2C%20Stockholm" target="_blank" rel="noopener">Oliver Twist</a></b> – Klasik pub, Södermalm · <span class="price">€€</span></li>
+      <li id="y-pharmarium"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmarium%2C%20Stortorget%207%2C%20Stockholm" target="_blank" rel="noopener">Pharmarium</a></b> – Eski eczanede kokteyl bar, Gamla Stan · <span class="price">€€</span></li>
+      <li id="y-tjoget"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Tjoget%2C%20Stockholm" target="_blank" rel="noopener">Tjoget</a></b> – Top 500'de 91., Hornstull (Södermalm) · <span class="price">€€</span></li>
+      <li id="y-rodahuset"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%B6da%20Huset%2C%20Malmskillnadsgatan%209%2C%20Stockholm" target="_blank" rel="noopener">Röda Huset</a></b> – Top 500'de 123., Sergels torg üstü, Malmskillnadsgatan 9 · <span class="price">€€€</span></li>
+      <li id="y-lucys"><b><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Lucy%27s%20Flower%20Shop%2C%20Stockholm" target="_blank" rel="noopener">Lucy's Flower Shop</a></b> – Top 500'de 225., Birger Jarlsgatan, çiçekçinin arkasında bodrum bar · <span class="price">€€</span></li>
     </ul>
   </div>
 
@@ -759,25 +781,63 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 </section>
 
 </main>
+<script>
+(function(){
+  var P=[["Scandic GO (otel)","🛏️","p-otel",59.33641,18.05493,"https://www.google.com/maps/search/?api=1&query=Scandic%20GO%2C%20Upplandsgatan%204%2C%20Stockholm"],["Vasamuseet","🏛️","m-vasa",59.32815,18.09137,"https://www.google.com/maps/search/?api=1&query=Vasamuseet%2C%20Stockholm"],["Fotografiska","🏛️","m-fotografiska",59.318,18.0847,"https://www.google.com/maps/search/?api=1&query=Fotografiska%2C%20Stockholm"],["Kungliga slottet","🏛️","m-slottet",59.32693,18.07016,"https://www.google.com/maps/search/?api=1&query=Kungliga%20slottet%2C%20Stockholm"],["Stadshuset","🏛️","m-stadshuset",59.32749,18.05421,"https://www.google.com/maps/search/?api=1&query=Stockholms%20stadshus"],["Skansen","🏛️","m-skansen",59.32662,18.10528,"https://www.google.com/maps/search/?api=1&query=Skansen%2C%20Stockholm"],["Nordiska museet","🏛️","m-nordiska",59.32915,18.09389,"https://www.google.com/maps/search/?api=1&query=Nordiska%20museet%2C%20Stockholm"],["ABBA The Museum","🏛️","m-abba",59.32493,18.09658,"https://www.google.com/maps/search/?api=1&query=ABBA%20The%20Museum%2C%20Stockholm"],["Nationalmuseum","🏛️","m-nationalmuseum",59.32856,18.07724,"https://www.google.com/maps/search/?api=1&query=Nationalmuseum%2C%20Stockholm"],["Nobelprismuseet","🏛️","m-nobel",59.32522,18.07083,"https://www.google.com/maps/search/?api=1&query=Nobelprismuseet%2C%20Stockholm"],["Hallwylska museet","🏛️","m-hallwylska",59.33325,18.0744,"https://www.google.com/maps/search/?api=1&query=Hallwylska%20museet%2C%20Stockholm"],["Stadsmuseet","🏛️","m-stadsmuseet",59.31959,18.07126,"https://www.google.com/maps/search/?api=1&query=Stadsmuseet%2C%20Stockholm"],["Moderna Museet","🏛️","m-moderna",59.32635,18.084,"https://www.google.com/maps/search/?api=1&query=Moderna%20Museet%2C%20Stockholm"],["The Viking Museum","🏛️","m-viking",59.32658,18.09493,"https://www.google.com/maps/search/?api=1&query=The%20Viking%20Museum%2C%20Stockholm"],["Spritmuseum","🏛️","m-sprit",59.32703,18.0938,"https://www.google.com/maps/search/?api=1&query=Spritmuseum%2C%20Stockholm"],["Sjöhistoriska museet","🏛️","m-sjohistoriska",59.3325,18.11589,"https://www.google.com/maps/search/?api=1&query=Sj%C3%B6historiska%20museet%2C%20Stockholm"],["Etnografiska museet","🏛️","m-etnografiska",59.33268,18.12072,"https://www.google.com/maps/search/?api=1&query=Etnografiska%20museet%2C%20Stockholm"],["Ekonomiska museet","🏛️","m-ekonomiska",59.3259,18.07335,"https://www.google.com/maps/search/?api=1&query=Ekonomiska%20museet%2C%20Stockholm"],["Spårvägsmuseet","🏛️","m-sparvagsmuseet",59.35791,18.09153,"https://www.google.com/maps/search/?api=1&query=Sp%C3%A5rv%C3%A4gsmuseet%2C%20Stockholm"],["Gamla Stan (Stortorget)","📍","g-gamlastan",59.325,18.07082,"https://www.google.com/maps/search/?api=1&query=Stortorget%2C%20Gamla%20stan%2C%20Stockholm"],["Storkyrkan","📍","g-gamlastan",59.32576,18.07039,"https://www.google.com/maps/search/?api=1&query=Storkyrkan%2C%20Stockholm"],["Monteliusvägen","📍","g-sodermalm",59.32073,18.06046,"https://www.google.com/maps/search/?api=1&query=Monteliusv%C3%A4gen%2C%20Stockholm"],["Skinnarviksberget","📍","g-sodermalm",59.31993,18.05078,"https://www.google.com/maps/search/?api=1&query=Skinnarviksberget%2C%20Stockholm"],["Östermalms Saluhall","📍","g-saluhall",59.33591,18.07769,"https://www.google.com/maps/search/?api=1&query=%C3%96stermalms%20saluhall%2C%20Stockholm"],["Riksdagshuset","📍","g-riksdag",59.32779,18.06733,"https://www.google.com/maps/search/?api=1&query=Riksdagshuset%2C%20Riksgatan%203%2C%20Stockholm"],["Brunkebergstunneln","📍","g-brunkeberg",59.33723,18.06631,"https://www.google.com/maps/search/?api=1&query=Brunkebergstunneln%2C%20Stockholm"],["Skogskyrkogården","📍","g-skogskyrkogarden",59.27105,18.10249,"https://www.google.com/maps/search/?api=1&query=Skogskyrkog%C3%A5rden%2C%20Stockholm"],["Riddarholmskyrkan","📍","g-riddarholm",59.32468,18.0646,"https://www.google.com/maps/search/?api=1&query=Riddarholmskyrkan%2C%20Stockholm"],["Drottningholm slott","📍","g-drottningholm",59.32163,17.88689,"https://www.google.com/maps/search/?api=1&query=Drottningholms%20slott"],["Sigtuna","📍","g-sigtuna",59.61612,17.72069,"https://www.google.com/maps/search/?api=1&query=Sigtuna"],["Pelikan","🍽️","y-denenecekler",59.31063,18.07647,"https://www.google.com/maps/search/?api=1&query=Pelikan%2C%20Blekingegatan%2040%2C%20Stockholm"],["Meatballs for the People","🍽️","y-denenecekler",59.3146,18.08142,"https://www.google.com/maps/search/?api=1&query=Meatballs%20for%20the%20People%2C%20Stockholm"],["Tennstopet","🍽️","y-tennstopet",59.34178,18.04579,"https://www.google.com/maps/search/?api=1&query=Tennstopet%2C%20Stockholm"],["Nystekt Strömming","🍽️","y-denenecekler",59.32275,18.07093,"https://www.google.com/maps/search/?api=1&query=Nystekt%20Str%C3%B6mming%2C%20Kornhamnstorg%2C%20Stockholm"],["Den Gyldene Freden","🍽️","y-freden",59.32313,18.07374,"https://www.google.com/maps/search/?api=1&query=Den%20Gyldene%20Freden%2C%20%C3%96sterl%C3%A5nggatan%2051%2C%20Stockholm"],["Socker Sucker","☕️","y-socker",59.3394,18.05565,"https://www.google.com/maps/search/?api=1&query=Socker%20Sucker%2C%20Stockholm"],["K-märkt","☕️","y-kmarkt",59.33527,18.09541,"https://www.google.com/maps/search/?api=1&query=K-m%C3%A4rkt%2C%20Stockholm"],["Skeppsbro Bageri","☕️","y-skeppsbro",59.32485,18.07614,"https://www.google.com/maps/search/?api=1&query=Skeppsbro%20Bageri%2C%20Stockholm"],["Vete-Katten","☕️","y-vetekatten",59.33411,18.05835,"https://www.google.com/maps/search/?api=1&query=Vete-Katten%2C%20Kungsgatan%2055%2C%20Stockholm"],["Café Saturnus","☕️","y-saturnus",59.33953,18.06868,"https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Saturnus%2C%20Eriksbergsgatan%206%2C%20Stockholm"],["Omnipollos hatt","🍸","y-omnipollo",59.31806,18.07223,"https://www.google.com/maps/search/?api=1&query=Omnipollos%20Hatt%2C%20Stockholm"],["Oliver Twist","🍸","y-olivertwist",59.31835,18.06981,"https://www.google.com/maps/search/?api=1&query=Oliver%20Twist%2C%20Stockholm"],["Pharmarium","🍸","y-pharmarium",59.32488,18.0709,"https://www.google.com/maps/search/?api=1&query=Pharmarium%2C%20Stortorget%207%2C%20Stockholm"],["Tjoget","🍸","y-tjoget",59.31619,18.03494,"https://www.google.com/maps/search/?api=1&query=Tjoget%2C%20Stockholm"],["Röda Huset","🍸","y-rodahuset",59.33268,18.06617,"https://www.google.com/maps/search/?api=1&query=R%C3%B6da%20Huset%2C%20Malmskillnadsgatan%209%2C%20Stockholm"],["Lucy's Flower Shop","🍸","y-lucys",59.33663,18.07196,"https://www.google.com/maps/search/?api=1&query=Lucy%27s%20Flower%20Shop%2C%20Stockholm"],["Stadshuset manzara noktası","📍","g-manzara",59.32695,18.05614,"https://www.google.com/maps/search/?api=1&query=59.326946%2C18.056139"]];
+  var btn=document.getElementById('near-btn'),st=document.getElementById('near-st'),ul=document.getElementById('near-list'),wid=null,last=null;
+  function dist(a,b,c,d){var R=6371000,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
+  function fmt(m){var t=m<1000?(Math.round(m/10)*10)+' m':(m/1000).toFixed(m<10000?1:0).replace('.',',')+' km';return m<=3000?t+' · ~'+Math.max(1,Math.ceil(m/80))+' dk':t;}
+  function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function render(la,lo){
+    var r=P.map(function(p){return {p:p,m:dist(la,lo,p[3],p[4])}}).sort(function(a,b){return a.m-b.m});
+    var near=r.filter(function(x){return x.m<=1000});
+    var list=near.length?near:r.slice(0,3);
+    st.textContent=near.length?near.length+' yer 1 km içinde.':'1 km içinde rehberdeki bir yer yok. En yakınlar:';
+    ul.innerHTML=list.map(function(x){var p=x.p;return '<li><span class="ic" aria-hidden="true">'+p[1]+'</span><span class="nm"><a class="jump" href="#'+p[2]+'">'+esc(p[0])+'</a></span><span class="d">'+fmt(x.m)+'</span><a class="map" href="'+p[5]+'" target="_blank" rel="noopener">Harita</a></li>'}).join('');
+  }
+  function ok(pos){
+    var c=pos.coords;
+    if(last&&dist(last[0],last[1],c.latitude,c.longitude)<25)return;
+    last=[c.latitude,c.longitude];render(c.latitude,c.longitude);
+    btn.textContent='📍 Konum açık · güncelleniyor';
+  }
+  function fail(e){
+    var m={1:'Konum izni verilmedi. Telefonun ayarlarından tarayıcıya konum izni verip tekrar dene.',2:'Konum bulunamadı. Biraz sonra tekrar dene.',3:'Konum zamanında alınamadı. Tekrar dene.'};
+    st.textContent=m[e.code]||'Konum alınamadı.';
+    if(wid!==null){navigator.geolocation.clearWatch(wid);wid=null;}
+    btn.textContent='📍 Yakınımdakileri göster';
+  }
+  btn.addEventListener('click',function(){
+    if(!('geolocation' in navigator)){st.textContent='Bu tarayıcı konum vermiyor.';return;}
+    if(wid!==null){if(last)render(last[0],last[1]);return;}
+    st.textContent='Konum alınıyor…';
+    wid=navigator.geolocation.watchPosition(ok,fail,{enableHighAccuracy:true,maximumAge:30000,timeout:20000});
+  });
+})();
+</script>
 <a class="back" id="back" href="#indirim" aria-hidden="true" tabindex="-1">↑ İndirimli günler</a>
 <script>
 (function(){
-  var box=document.getElementById('indirim'), btn=document.getElementById('back'), left=false;
+  var btn=document.getElementById('back'), ret=null, left=false, io=null;
   function show(on){btn.classList.toggle('show',on);btn.setAttribute('aria-hidden',on?'false':'true');btn.tabIndex=on?0:-1;if(!on)left=false;}
-  box.querySelectorAll('a.jump').forEach(function(a){
-    a.addEventListener('click',function(){
-      var t=document.getElementById(a.getAttribute('href').slice(1));
-      if(t){t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');}
-      left=false;show(true);
-    });
-  });
-  btn.addEventListener('click',function(){show(false);});
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){es.forEach(function(e){
+  function watch(el){
+    if(!('IntersectionObserver' in window))return;
+    if(io)io.disconnect();
+    io=new IntersectionObserver(function(es){es.forEach(function(e){
       if(!btn.classList.contains('show'))return;
       if(!e.isIntersecting)left=true; else if(left)show(false);
-    });},{threshold:0.5}).observe(box);
+    });},{threshold:0.3});
+    io.observe(el);
   }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a.jump');if(!a)return;
+    var box=a.closest('[data-return]');if(!box)return;
+    var t=document.getElementById(a.getAttribute('href').slice(1));
+    if(t){t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');}
+    ret=box;btn.href='#'+box.id;btn.textContent=box.getAttribute('data-return');
+    left=false;show(true);watch(box);
+  });
+  btn.addEventListener('click',function(){show(false);});
 })();
 </script>
 <script>
