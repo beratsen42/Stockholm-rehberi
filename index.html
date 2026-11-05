@@ -60,12 +60,10 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:28px;margin:0 0 4px;letter-s
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 12px}
 .card h3{margin:0;font-size:17px;letter-spacing:.3px;text-transform:uppercase;font-weight:600}
 .card .tr{color:var(--muted);font-size:14px;margin:1px 0 8px}
-.card h3:has(.num)+.tr{padding-left:32px}
 .card p{margin:0 0 8px}
 .card ul{margin:0;padding:0;list-style:none}
 .card li{padding:3px 0;font-size:15px}
 .card li b{font-weight:600}
-.num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-size:12px;font-weight:700;margin-right:8px;vertical-align:2px}
 .link{display:inline-block;margin-top:8px;font-size:14px;font-weight:500;color:var(--blue);text-decoration:none}
 .link+.link{margin-left:16px}
 .link.maplink{color:var(--map)}
@@ -88,7 +86,6 @@ li.flash{border-radius:8px}
 .fold-body{margin-top:8px}
 .meta{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:13px;color:var(--muted);line-height:1.4}
 .meta:empty{display:none}
-.fold-head:has(.num) .meta{padding-left:32px}
 .meta .st{font-weight:600}
 .meta .st::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted);margin-right:6px;vertical-align:1px}
 .meta .st.on{color:var(--green)} .meta .st.on::before{background:var(--green)}
@@ -273,7 +270,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-vasa">
-    <h3><span class="num">1</span>Vasamuseet</h3>
+    <h3>Vasamuseet</h3>
     <div class="tr">Vasa Müzesi</div>
     <p>1628'de ilk seferinde batan, 333 yıl sonra çıkarılan savaş gemisi.</p>
     <ul>
@@ -286,7 +283,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-fotografiska">
-    <h3 lang="sv"><span class="num">2</span>Fotografiska</h3>
+    <h3 lang="sv">Fotografiska</h3>
     <div class="tr">Fotoğraf Müzesi</div>
     <p>Dünyaca ünlü çağdaş fotoğraf müzesi. Üst kattaki bar manzaralı.</p>
     <ul>
@@ -298,7 +295,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-slottet">
-    <h3 lang="sv"><span class="num">3</span>Kungliga slottet</h3>
+    <h3 lang="sv">Kungliga slottet</h3>
     <div class="tr">Kraliyet Sarayı</div>
     <p>Kralın resmi sarayı, Gamla Stan'da. Kraliyet daireleri, hazine ve Üç Taç müzesi.</p>
     <ul>
@@ -309,7 +306,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-stadshuset">
-    <h3><span class="num">4</span>Stadshuset</h3>
+    <h3>Stadshuset</h3>
     <div class="tr">Belediye Binası</div>
     <p>Nobel ziyafetinin yapıldığı Mavi Salon ve altın mozaikli Altın Salon. Sadece rehberli turla girilir, ~45 dk.</p>
     <ul>
@@ -321,7 +318,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-skansen">
-    <h3><span class="num">5</span>Skansen</h3>
+    <h3>Skansen</h3>
     <div class="tr">Açık Hava Müzesi</div>
     <p>Dünyanın ilk açık hava müzesi: eski İsveç evleri ve İskandinav hayvanları.</p>
     <ul>
@@ -333,7 +330,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-nordiska">
-    <h3 lang="sv"><span class="num">6</span>Nordiska museet</h3>
+    <h3 lang="sv">Nordiska museet</h3>
     <div class="tr">İskandinav Müzesi</div>
     <p>16. yüzyıldan bugüne İsveç'te günlük yaşam. Vasa'nın hemen karşısında.</p>
     <ul>
@@ -344,7 +341,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-abba">
-    <h3><span class="num">7</span>ABBA The Museum</h3>
+    <h3>ABBA The Museum</h3>
     <div class="tr">ABBA Müzesi</div>
     <p>ABBA'nın kostümleri, stüdyosu, interaktif sahne ve karaoke.</p>
     <ul>
@@ -357,7 +354,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-nationalmuseum">
-    <h3 lang="sv"><span class="num">8</span>Nationalmuseum</h3>
+    <h3 lang="sv">Nationalmuseum</h3>
     <div class="tr">Ulusal Sanat Müzesi</div>
     <p>İsveç'in ulusal sanat ve tasarım müzesi. Rembrandt, Carl Larsson.</p>
     <ul>
@@ -369,7 +366,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-nobel">
-    <h3 lang="sv"><span class="num">9</span>Nobelprismuseet</h3>
+    <h3 lang="sv">Nobelprismuseet</h3>
     <div class="tr">Nobel Ödülü Müzesi</div>
     <p>Gamla Stan, Stortorget'te. Küçük, ~1 saat.</p>
     <ul><li><b>Saat:</b> Salı–Pazar 11:00–17:00, Cuma 21:00'e kadar. Pazartesi kapalı</li>
@@ -379,7 +376,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-hallwylska">
-    <h3><span class="num">10</span>Hallwylska museet</h3>
+    <h3>Hallwylska museet</h3>
     <div class="tr">Hallwyl Konağı</div>
     <p>1900'lerin zengin bir ailesinin evi, eşyalarıyla olduğu gibi.</p>
     <ul>
@@ -391,7 +388,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
 
 
   <div class="card" id="m-stadsmuseet">
-    <h3><span class="num">11</span>Stadsmuseet</h3>
+    <h3>Stadsmuseet</h3>
     <div class="tr">Şehir Müzesi</div>
     <p>Stockholm'ün tarihi, Slussen'de.</p>
     <ul>
@@ -402,7 +399,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-moderna">
-    <h3><span class="num">12</span>Moderna Museet</h3>
+    <h3>Moderna Museet</h3>
     <div class="tr">Modern Sanat Müzesi</div>
     <p>Skeppsholmen adasında.</p>
     <ul>
@@ -413,7 +410,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-vrak">
-    <h3><span class="num">13</span>Vrak</h3>
+    <h3>Vrak</h3>
     <div class="tr">Batıklar Müzesi</div>
     <p>Baltık'taki batık gemiler. Vasa'nın yanında, Djurgården.</p>
     <ul>
@@ -424,7 +421,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-viking">
-    <h3 lang="en"><span class="num">14</span>The Viking Museum</h3>
+    <h3 lang="en">The Viking Museum</h3>
     <div class="tr">Viking Müzesi</div>
     <p>Djurgården, interaktif ve hikâyeli tren yolculuğu.</p>
     <ul>
@@ -435,7 +432,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-sprit">
-    <h3 lang="sv"><span class="num">15</span>Spritmuseum</h3>
+    <h3 lang="sv">Spritmuseum</h3>
     <div class="tr">İçki Müzesi</div>
     <p>İsveç içki kültürü, Djurgården.</p>
     <ul>
@@ -446,7 +443,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-sjohistoriska">
-    <h3 lang="sv"><span class="num">16</span>Sjöhistoriska museet</h3>
+    <h3 lang="sv">Sjöhistoriska museet</h3>
     <div class="tr">Denizcilik Müzesi</div>
     <p>Gemi modelleri, denizcilik tarihi.</p>
     <ul>
@@ -457,7 +454,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-etnografiska">
-    <h3 lang="sv"><span class="num">17</span>Etnografiska museet</h3>
+    <h3 lang="sv">Etnografiska museet</h3>
     <div class="tr">Etnografya Müzesi</div>
     <p>Dünya kültürlerinden eserler.</p>
     <ul>
@@ -468,7 +465,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-ekonomiska">
-    <h3 lang="sv"><span class="num">18</span>Ekonomiska museet</h3>
+    <h3 lang="sv">Ekonomiska museet</h3>
     <div class="tr">Ekonomi Müzesi</div>
     <p>Para ve ekonomi tarihi.</p>
     <ul>
@@ -479,7 +476,7 @@ footer{color:var(--muted);font-size:13px;padding:24px 0 40px;text-align:center}
   </div>
 
   <div class="card" id="m-sparvagsmuseet">
-    <h3><span class="num">19</span>Spårvägsmuseet</h3>
+    <h3>Spårvägsmuseet</h3>
     <div class="tr">Ulaşım Müzesi</div>
     <p>Eski tramvay, otobüs ve metro vagonları.</p>
     <ul>
